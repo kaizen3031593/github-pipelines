@@ -48,12 +48,12 @@ jobs:
           aws-region: us-west-2
           role-skip-session-tagging: true
           role-duration-seconds: 1800
-      - name: Publish 6a8069819d4741e46e5e44fc46eddf30ffe05331b51d362f469b2ec9ca8d934b
+      - name: Publish 5f792ccdd3a645ccba534040923e7b708b0b1cd42d5fc69c8956a3fab4bf5e09
           (template)
         run: npx cdk-assets --path
           "cdk.out/assembly-NewcdkStack-US/NewcdkStackUSFunctionStack1A1FBB9B.assets.json"
           --verbose publish
-          "6a8069819d4741e46e5e44fc46eddf30ffe05331b51d362f469b2ec9ca8d934b:489318732371-us-east-1"
+          "5f792ccdd3a645ccba534040923e7b708b0b1cd42d5fc69c8956a3fab4bf5e09:489318732371-us-east-1"
   US-FunctionStack-Deploy:
     name: Deploy NewcdkStackUSFunctionStack1A1FBB9B
     permissions:
@@ -76,6 +76,6 @@ jobs:
       - uses: aws-actions/aws-cloudformation-github-deploy@v1
         with:
           name: US-FunctionStack
-          template: https://cdk-hnb659fds-assets-489318732371-us-east-1.s3.us-east-1.amazonaws.com/6a8069819d4741e46e5e44fc46eddf30ffe05331b51d362f469b2ec9ca8d934b.json
+          template: https://cdk-hnb659fds-assets-489318732371-us-east-1.s3.us-east-1.amazonaws.com/5f792ccdd3a645ccba534040923e7b708b0b1cd42d5fc69c8956a3fab4bf5e09.json
           no-fail-on-empty-changeset: "1"
           role-arn: arn:aws:iam::489318732371:role/cdk-hnb659fds-cfn-exec-role-489318732371-us-east-1
