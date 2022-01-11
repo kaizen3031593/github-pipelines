@@ -45,7 +45,7 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-1
+          aws-region: us-west-2
           role-skip-session-tagging: true
           role-duration-seconds: 1800
       - name: Publish 9f4ea1e92a5637be46644fd82ab6fdb58bc13fa6b62a423e7041639172753c46
@@ -73,7 +73,7 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-1
+          aws-region: us-west-2
           role-skip-session-tagging: true
           role-duration-seconds: 1800
       - name: "Publish bdb08b9984816ecf43301a0c6d8913e270ee2448940b6b95e430dd222a4d90be
@@ -101,7 +101,7 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-1
+          aws-region: us-west-2
           role-skip-session-tagging: true
           role-duration-seconds: 1800
       - name: Publish 7a08afd1c01194da90179d881bdce36506682fe1629b3cfba67cf3658ddc0e5d

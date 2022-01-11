@@ -7,22 +7,10 @@ export class MyStage extends Stage {
     super(scope, id, props);
 
     const fnStack = new Stack(this, 'FunctionStack');
-    const bucketStack = new Stack(this, 'BucketStack');
-
-    const bucket = new s3.Bucket(bucketStack, 'Bucket', {
-      autoDeleteObjects: true,
-      removalPolicy: RemovalPolicy.DESTROY,
-    });
 
     const fn = new lambda.Function(fnStack, 'Function', {
       code: lambda.Code.fromInline('mycode'),
       handler: 'index.handler',
       runtime: lambda.Runtime.NODEJS_14_X,
-      environment: {
-        BUCKET_NAME: bucket.bucketName, // <-- cross stack reference
-      },
     });
-
-    bucket.grantRead(fn);
-  }
-}
+  }}
