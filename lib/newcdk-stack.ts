@@ -1,19 +1,24 @@
-import { Duration, Stack, StackProps } from 'aws-cdk-lib';
-import * as sns from 'aws-cdk-lib/aws-sns';
-import * as subs from 'aws-cdk-lib/aws-sns-subscriptions';
-import * as sqs from 'aws-cdk-lib/aws-sqs';
+import { Stack, StackProps } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
+import { GitHubWorkflow } from 'cdk-pipelines-github';
+import { ShellStep } from 'aws-cdk-lib/pipelines';
+import { MyStage } from './my-stage';
+
+const ACCOUNT = '489318732371';
 
 export class NewcdkStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
 
-    const queue = new sqs.Queue(this, 'NewcdkQueue', {
-      visibilityTimeout: Duration.seconds(300)
+    const pipeline = new GitHubWorkflow(this, 'pipeline', {
+      synth: new ShellStep('Build', {
+        commands: [
+          'yarn install',
+          'yarn build',
+        ],
+      }),
     });
 
-    const topic = new sns.Topic(this, 'NewcdkTopic');
-
-    topic.addSubscription(new subs.SqsSubscription(queue));
+    pipeline.addStage(new MyStage(this, 'US', { env: { account: ACCOUNT, region: 'us-east-1'}}));
   }
 }
