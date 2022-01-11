@@ -15,6 +15,7 @@ export class NewcdkStack extends Stack {
         commands: [
           'yarn install',
           'yarn build',
+          'cdk synth',
         ],
       }),
     });
