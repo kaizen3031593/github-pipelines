@@ -76,9 +76,9 @@ jobs:
       - name: "Publish bdb08b9984816ecf43301a0c6d8913e270ee2448940b6b95e430dd222a4d90be
           "
         run: chmod +x
-          ./cdk.out/publish-bdb08b9984816ecf43301a0c6d8913e270ee2448940b6b95e430dd222a4d90be-7f07b3178a1a85106b0ae43a85687a08-step.sh
+          ./cdk.out/publish-bdb08b9984816ecf43301a0c6d8913e270ee2448940b6b95e430dd222a4d90be-86d669e39427df5b47caf6c25aa25241-step.sh
           &&
-          ./cdk.out/publish-bdb08b9984816ecf43301a0c6d8913e270ee2448940b6b95e430dd222a4d90be-7f07b3178a1a85106b0ae43a85687a08-step.sh
+          ./cdk.out/publish-bdb08b9984816ecf43301a0c6d8913e270ee2448940b6b95e430dd222a4d90be-86d669e39427df5b47caf6c25aa25241-step.sh
   Assets-FileAsset3:
     name: Publish Assets Assets-FileAsset3
     needs:
@@ -132,9 +132,9 @@ jobs:
       - name: "Publish 110e18dfbcf5cf9d2a3778bf70a12ceccf9eb10d7dd493ef917073e32450a46c
           "
         run: chmod +x
-          ./cdk.out/publish-110e18dfbcf5cf9d2a3778bf70a12ceccf9eb10d7dd493ef917073e32450a46c-70d2239c641ff8c610590f561e67f973-step.sh
+          ./cdk.out/publish-110e18dfbcf5cf9d2a3778bf70a12ceccf9eb10d7dd493ef917073e32450a46c-1d809251f13d18b9dbac8b0b9b5f41bc-step.sh
           &&
-          ./cdk.out/publish-110e18dfbcf5cf9d2a3778bf70a12ceccf9eb10d7dd493ef917073e32450a46c-70d2239c641ff8c610590f561e67f973-step.sh
+          ./cdk.out/publish-110e18dfbcf5cf9d2a3778bf70a12ceccf9eb10d7dd493ef917073e32450a46c-1d809251f13d18b9dbac8b0b9b5f41bc-step.sh
   Assets-FileAsset5:
     name: Publish Assets Assets-FileAsset5
     needs:
@@ -154,12 +154,12 @@ jobs:
           aws-region: us-west-2
           role-skip-session-tagging: true
           role-duration-seconds: 1800
-      - name: Publish 81a887fe3fb4f80a6318f665e5db8c4a315d35a7f37ed0fe02ae52924f6cc741
+      - name: Publish bd666a7ff96df3c3eff5a60fb6785e2194b73cc264efd599ec51fb7625272515
           (template)
         run: chmod +x
-          ./cdk.out/publish-81a887fe3fb4f80a6318f665e5db8c4a315d35a7f37ed0fe02ae52924f6cc741-d1903560d5aed036bf5a13054d877350-step.sh
+          ./cdk.out/publish-bd666a7ff96df3c3eff5a60fb6785e2194b73cc264efd599ec51fb7625272515-e116b3641356fb21b24ddd2875d990af-step.sh
           &&
-          ./cdk.out/publish-81a887fe3fb4f80a6318f665e5db8c4a315d35a7f37ed0fe02ae52924f6cc741-d1903560d5aed036bf5a13054d877350-step.sh
+          ./cdk.out/publish-bd666a7ff96df3c3eff5a60fb6785e2194b73cc264efd599ec51fb7625272515-e116b3641356fb21b24ddd2875d990af-step.sh
   Assets-FileAsset6:
     name: Publish Assets Assets-FileAsset6
     needs:
@@ -179,12 +179,12 @@ jobs:
           aws-region: us-west-2
           role-skip-session-tagging: true
           role-duration-seconds: 1800
-      - name: Publish a9b50913ce3bc0e523d7d9d15269da7e9f0f7fbba28e8c39f9e4ef2626d9500c
+      - name: Publish e3ec540527291ed884295bbab2f70a795cff41a0ce5c24344dcd1e35dbeb56e5
           (template)
         run: chmod +x
-          ./cdk.out/publish-a9b50913ce3bc0e523d7d9d15269da7e9f0f7fbba28e8c39f9e4ef2626d9500c-d06fe078d0bd6e03b45253367224b685-step.sh
+          ./cdk.out/publish-e3ec540527291ed884295bbab2f70a795cff41a0ce5c24344dcd1e35dbeb56e5-804a72bb2dd138cfc6f0c35ddd625666-step.sh
           &&
-          ./cdk.out/publish-a9b50913ce3bc0e523d7d9d15269da7e9f0f7fbba28e8c39f9e4ef2626d9500c-d06fe078d0bd6e03b45253367224b685-step.sh
+          ./cdk.out/publish-e3ec540527291ed884295bbab2f70a795cff41a0ce5c24344dcd1e35dbeb56e5-804a72bb2dd138cfc6f0c35ddd625666-step.sh
   StageA-BucketStack-Deploy:
     name: Deploy StageABucketStackEAC67DBE
     permissions:
@@ -255,17 +255,17 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-west-2
+          aws-region: eu-west-1
           role-skip-session-tagging: true
           role-duration-seconds: 1800
-          role-to-assume: arn:aws:iam::489318732371:role/cdk-hnb659fds-deploy-role-489318732371-us-west-2
+          role-to-assume: arn:aws:iam::489318732371:role/cdk-hnb659fds-deploy-role-489318732371-eu-west-1
           role-external-id: Pipeline
       - uses: aws-actions/aws-cloudformation-github-deploy@v1
         with:
           name: StageB-BucketStack
-          template: https://cdk-hnb659fds-assets-489318732371-us-west-2.s3.us-west-2.amazonaws.com/81a887fe3fb4f80a6318f665e5db8c4a315d35a7f37ed0fe02ae52924f6cc741.json
+          template: https://cdk-hnb659fds-assets-489318732371-eu-west-1.s3.eu-west-1.amazonaws.com/bd666a7ff96df3c3eff5a60fb6785e2194b73cc264efd599ec51fb7625272515.json
           no-fail-on-empty-changeset: "1"
-          role-arn: arn:aws:iam::489318732371:role/cdk-hnb659fds-cfn-exec-role-489318732371-us-west-2
+          role-arn: arn:aws:iam::489318732371:role/cdk-hnb659fds-cfn-exec-role-489318732371-eu-west-1
   StageB-FunctionStack-Deploy:
     name: Deploy StageBFunctionStack18098DCD
     permissions:
@@ -284,14 +284,14 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-west-2
+          aws-region: eu-west-1
           role-skip-session-tagging: true
           role-duration-seconds: 1800
-          role-to-assume: arn:aws:iam::489318732371:role/cdk-hnb659fds-deploy-role-489318732371-us-west-2
+          role-to-assume: arn:aws:iam::489318732371:role/cdk-hnb659fds-deploy-role-489318732371-eu-west-1
           role-external-id: Pipeline
       - uses: aws-actions/aws-cloudformation-github-deploy@v1
         with:
           name: StageB-FunctionStack
-          template: https://cdk-hnb659fds-assets-489318732371-us-west-2.s3.us-west-2.amazonaws.com/a9b50913ce3bc0e523d7d9d15269da7e9f0f7fbba28e8c39f9e4ef2626d9500c.json
+          template: https://cdk-hnb659fds-assets-489318732371-eu-west-1.s3.eu-west-1.amazonaws.com/e3ec540527291ed884295bbab2f70a795cff41a0ce5c24344dcd1e35dbeb56e5.json
           no-fail-on-empty-changeset: "1"
-          role-arn: arn:aws:iam::489318732371:role/cdk-hnb659fds-cfn-exec-role-489318732371-us-west-2
+          role-arn: arn:aws:iam::489318732371:role/cdk-hnb659fds-cfn-exec-role-489318732371-eu-west-1

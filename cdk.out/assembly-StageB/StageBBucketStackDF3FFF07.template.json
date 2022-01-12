@@ -121,7 +121,7 @@
       "Type": "AWS::Lambda::Function",
       "Properties": {
         "Code": {
-          "S3Bucket": "cdk-hnb659fds-assets-489318732371-us-west-2",
+          "S3Bucket": "cdk-hnb659fds-assets-489318732371-eu-west-1",
           "S3Key": "bdb08b9984816ecf43301a0c6d8913e270ee2448940b6b95e430dd222a4d90be.zip"
         },
         "Timeout": 900,

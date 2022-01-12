@@ -1,1 +1,0 @@
-npx cdk-assets --path "cdk.out/assembly-StageB/StageBBucketStackDF3FFF07.assets.json" --verbose publish "5a935b3596461f4a311d0370d22439a55345c58719f566f915d3bdcb5308133e:489318732371-us-west-1"
