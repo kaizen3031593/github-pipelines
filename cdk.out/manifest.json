@@ -1,0 +1,19 @@
+{
+  "version": "15.0.0",
+  "artifacts": {
+    "assembly-StageA": {
+      "type": "cdk:cloud-assembly",
+      "properties": {
+        "directoryName": "assembly-StageA",
+        "displayName": "StageA"
+      }
+    },
+    "assembly-StageB": {
+      "type": "cdk:cloud-assembly",
+      "properties": {
+        "directoryName": "assembly-StageB",
+        "displayName": "StageB"
+      }
+    }
+  }
+}
