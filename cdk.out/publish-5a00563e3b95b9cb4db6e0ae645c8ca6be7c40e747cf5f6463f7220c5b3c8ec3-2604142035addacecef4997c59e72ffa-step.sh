@@ -1,1 +1,0 @@
-npx cdk-assets --path "cdk.out/assembly-StageB/StageBFunctionStack18098DCD.assets.json" --verbose publish "5a00563e3b95b9cb4db6e0ae645c8ca6be7c40e747cf5f6463f7220c5b3c8ec3:489318732371-eu-west-2"
