@@ -44,7 +44,7 @@ jobs:
           role-duration-seconds: 1800
       - name: Publish 43c50b5121383d1a98a3b94b5ed566638062eaf235db714bd5c65a94419c7fcf
           (template)
-        run: ./cdk.out/publish-43c50b5121383d1a98a3b94b5ed566638062eaf235db714bd5c65a94419c7fcf-step.sh
+        run: cdk.out/publish-43c50b5121383d1a98a3b94b5ed566638062eaf235db714bd5c65a94419c7fcf-step.sh
   Assets-FileAsset2:
     name: Publish Assets Assets-FileAsset2
     needs:
@@ -66,10 +66,10 @@ jobs:
           role-duration-seconds: 1800
       - name: "Publish bdb08b9984816ecf43301a0c6d8913e270ee2448940b6b95e430dd222a4d90be
           "
-        run: ./cdk.out/publish-bdb08b9984816ecf43301a0c6d8913e270ee2448940b6b95e430dd222a4d90be-step.sh
+        run: cdk.out/publish-bdb08b9984816ecf43301a0c6d8913e270ee2448940b6b95e430dd222a4d90be-step.sh
       - name: "Publish bdb08b9984816ecf43301a0c6d8913e270ee2448940b6b95e430dd222a4d90be
           "
-        run: ./cdk.out/publish-bdb08b9984816ecf43301a0c6d8913e270ee2448940b6b95e430dd222a4d90be-step.sh
+        run: cdk.out/publish-bdb08b9984816ecf43301a0c6d8913e270ee2448940b6b95e430dd222a4d90be-step.sh
   Assets-FileAsset3:
     name: Publish Assets Assets-FileAsset3
     needs:
@@ -91,7 +91,7 @@ jobs:
           role-duration-seconds: 1800
       - name: Publish 51318b8aa2e4347ae4e4bb67ed3423231fe3ed7b6b59f399cda16b76daf454f6
           (template)
-        run: ./cdk.out/publish-51318b8aa2e4347ae4e4bb67ed3423231fe3ed7b6b59f399cda16b76daf454f6-step.sh
+        run: cdk.out/publish-51318b8aa2e4347ae4e4bb67ed3423231fe3ed7b6b59f399cda16b76daf454f6-step.sh
   Assets-FileAsset4:
     name: Publish Assets Assets-FileAsset4
     needs:
@@ -113,10 +113,10 @@ jobs:
           role-duration-seconds: 1800
       - name: "Publish 110e18dfbcf5cf9d2a3778bf70a12ceccf9eb10d7dd493ef917073e32450a46c
           "
-        run: ./cdk.out/publish-110e18dfbcf5cf9d2a3778bf70a12ceccf9eb10d7dd493ef917073e32450a46c-step.sh
+        run: cdk.out/publish-110e18dfbcf5cf9d2a3778bf70a12ceccf9eb10d7dd493ef917073e32450a46c-step.sh
       - name: "Publish 110e18dfbcf5cf9d2a3778bf70a12ceccf9eb10d7dd493ef917073e32450a46c
           "
-        run: ./cdk.out/publish-110e18dfbcf5cf9d2a3778bf70a12ceccf9eb10d7dd493ef917073e32450a46c-step.sh
+        run: cdk.out/publish-110e18dfbcf5cf9d2a3778bf70a12ceccf9eb10d7dd493ef917073e32450a46c-step.sh
   Assets-FileAsset5:
     name: Publish Assets Assets-FileAsset5
     needs:
@@ -138,7 +138,7 @@ jobs:
           role-duration-seconds: 1800
       - name: Publish 720804c217882909d421ade083e6817df374a4b5aafe3876ac5d5e0c81c01df1
           (template)
-        run: ./cdk.out/publish-720804c217882909d421ade083e6817df374a4b5aafe3876ac5d5e0c81c01df1-step.sh
+        run: cdk.out/publish-720804c217882909d421ade083e6817df374a4b5aafe3876ac5d5e0c81c01df1-step.sh
   Assets-FileAsset6:
     name: Publish Assets Assets-FileAsset6
     needs:
@@ -160,7 +160,7 @@ jobs:
           role-duration-seconds: 1800
       - name: Publish 5a00563e3b95b9cb4db6e0ae645c8ca6be7c40e747cf5f6463f7220c5b3c8ec3
           (template)
-        run: ./cdk.out/publish-5a00563e3b95b9cb4db6e0ae645c8ca6be7c40e747cf5f6463f7220c5b3c8ec3-step.sh
+        run: cdk.out/publish-5a00563e3b95b9cb4db6e0ae645c8ca6be7c40e747cf5f6463f7220c5b3c8ec3-step.sh
   StageA-BucketStack-Deploy:
     name: Deploy StageABucketStackEAC67DBE
     permissions:
