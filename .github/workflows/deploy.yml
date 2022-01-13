@@ -240,8 +240,7 @@ jobs:
     env: {}
     steps:
       - run: |
-          echo outputs: ${{toJSON(needs.StageA-FunctionStack-Deploy.outputs.stack-outputs).myout}}
-          echo ${{needs.StageA-FunctionStack-Deploy.outputs.stack-outputs.myout}}
+          echo outputs: "${{toJSON(needs.StageA-FunctionStack-Deploy.outputs.stack-outputs)}}"
   StageB-BucketStack-Deploy:
     name: Deploy StageBBucketStackDF3FFF07
     permissions:
