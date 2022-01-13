@@ -199,7 +199,7 @@ jobs:
       - Build-Build
     runs-on: ubuntu-latest
     outputs:
-      stack-id: ${{ steps.step2.outputs.stack-id }}
+      stack-id: ${{ steps.step1.outputs.stack-id }}
     steps:
       - id: step1
       - uses: aws-actions/configure-aws-credentials@v1
@@ -211,7 +211,6 @@ jobs:
           role-duration-seconds: 1800
           role-to-assume: arn:aws:iam::489318732371:role/cdk-hnb659fds-deploy-role-489318732371-us-east-1
           role-external-id: Pipeline
-      - id: step2
       - uses: aws-actions/aws-cloudformation-github-deploy@v1
         with:
           name: StageA-FunctionStack
