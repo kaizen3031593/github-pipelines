@@ -239,7 +239,7 @@ jobs:
     steps:
       - run: |
         echo myout: ${{needs.StageA-FunctionStack-Deploy.outputs.myout}}
-        echo ${{needs.StageA-FunctionStack-Deploy.outputs.stack-id }}
+        echo ${{needs.StageA-FunctionStack-Deploy.outputs.stack-id}}
   StageB-BucketStack-Deploy:
     name: Deploy StageBBucketStackDF3FFF07
     permissions:
