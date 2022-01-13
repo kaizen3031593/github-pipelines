@@ -237,10 +237,12 @@ jobs:
       - StageA-BucketStack-Deploy
       - StageA-FunctionStack-Deploy
       - Build-Build
-    env: {}
+    env:
+      TEST: ${{toJSON(needs.StageA-FunctionStack-Deploy.outputs.stack-outputs)}}
     steps:
       - run: |
-          echo outputs: "${{toJSON(needs.StageA-FunctionStack-Deploy.outputs.stack-outputs)}}"
+          echo $TEST | jq ".myout"
+          echo $TEST | jq "."
   StageB-BucketStack-Deploy:
     name: Deploy StageBBucketStackDF3FFF07
     permissions:
