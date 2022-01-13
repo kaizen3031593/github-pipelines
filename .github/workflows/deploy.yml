@@ -224,12 +224,10 @@ jobs:
         env:
           NAME: ${{ steps.step2.outputs.myout }}
           STACK: ${{ steps.step2.outputs.stack-id }}
-          OUTS: ${{ steps.step2.outputs.* }}
           TEST: ${{join(steps.step2.outputs.*, '\n')}}
         run: |
           echo "My Out: $NAME"
           echo "Stack: $STACK"
-          echo "Outs: $OUTS"
           echo "Test: $TEST"
   StageA-Post:
     name: Post
