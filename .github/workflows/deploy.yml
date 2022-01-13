@@ -223,7 +223,7 @@ jobs:
         env:
           NAME: ${{ steps.step2.outputs.myout }}
           STACK: ${{ steps.step2.outputs.stack-id }}
-          TEST: ${{join(steps.step2.outputs.*, '\n')}}
+          TEST: ${{toJSON(steps.step2.outputs)}}
         run: |
           echo "My Out: $NAME"
           echo "Stack: $STACK"
