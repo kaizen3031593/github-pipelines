@@ -241,8 +241,8 @@ jobs:
       TEST: ${{toJSON(needs.StageA-FunctionStack-Deploy.outputs.stack-outputs)}}
     steps:
       - run: |
-          echo $TEST | npx jq 'fromjson|.myout'
-          echo $TEST | npx jq 'fromjson|.'
+          echo $TEST | jq 'fromjson|.myout'
+          echo $TEST | jq 'fromjson|.'
   StageB-BucketStack-Deploy:
     name: Deploy StageBBucketStackDF3FFF07
     permissions:
