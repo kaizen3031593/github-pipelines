@@ -42,10 +42,8 @@ jobs:
           aws-region: us-west-2
           role-skip-session-tagging: true
           role-duration-seconds: 1800
-      - name: Publish 43c50b5121383d1a98a3b94b5ed566638062eaf235db714bd5c65a94419c7fcf
-          (template)
-        run: /bin/bash
-          ./cdk.out/publish-43c50b5121383d1a98a3b94b5ed566638062eaf235db714bd5c65a94419c7fcf-91496a4719661cb31cce8293fa062ec5-step.sh
+      - name: Publish Assets-FileAsset1
+        run: /bin/bash ./cdk.out/publish-Assets-FileAsset1-step.sh
   Assets-FileAsset2:
     name: Publish Assets Assets-FileAsset2
     needs:
@@ -65,14 +63,8 @@ jobs:
           aws-region: us-west-2
           role-skip-session-tagging: true
           role-duration-seconds: 1800
-      - name: "Publish bdb08b9984816ecf43301a0c6d8913e270ee2448940b6b95e430dd222a4d90be
-          "
-        run: /bin/bash
-          ./cdk.out/publish-bdb08b9984816ecf43301a0c6d8913e270ee2448940b6b95e430dd222a4d90be-f9e12910e805a99a2dc34d34ad06af3f-step.sh
-      - name: "Publish bdb08b9984816ecf43301a0c6d8913e270ee2448940b6b95e430dd222a4d90be
-          "
-        run: /bin/bash
-          ./cdk.out/publish-bdb08b9984816ecf43301a0c6d8913e270ee2448940b6b95e430dd222a4d90be-86d669e39427df5b47caf6c25aa25241-step.sh
+      - name: Publish Assets-FileAsset2
+        run: /bin/bash ./cdk.out/publish-Assets-FileAsset2-step.sh
   Assets-FileAsset3:
     name: Publish Assets Assets-FileAsset3
     needs:
@@ -92,10 +84,8 @@ jobs:
           aws-region: us-west-2
           role-skip-session-tagging: true
           role-duration-seconds: 1800
-      - name: Publish 2616f16766dabf4f57f76aa263cab30ed3b30c45e8dfc6cc9ae81cdd53080c3d
-          (template)
-        run: /bin/bash
-          ./cdk.out/publish-2616f16766dabf4f57f76aa263cab30ed3b30c45e8dfc6cc9ae81cdd53080c3d-1fa00c1e551bdb921be2ed8b3b746e5b-step.sh
+      - name: Publish Assets-FileAsset3
+        run: /bin/bash ./cdk.out/publish-Assets-FileAsset3-step.sh
   Assets-FileAsset4:
     name: Publish Assets Assets-FileAsset4
     needs:
@@ -115,14 +105,8 @@ jobs:
           aws-region: us-west-2
           role-skip-session-tagging: true
           role-duration-seconds: 1800
-      - name: "Publish 110e18dfbcf5cf9d2a3778bf70a12ceccf9eb10d7dd493ef917073e32450a46c
-          "
-        run: /bin/bash
-          ./cdk.out/publish-110e18dfbcf5cf9d2a3778bf70a12ceccf9eb10d7dd493ef917073e32450a46c-f4bf3e00cb0c9078f17313352108d0b0-step.sh
-      - name: "Publish 110e18dfbcf5cf9d2a3778bf70a12ceccf9eb10d7dd493ef917073e32450a46c
-          "
-        run: /bin/bash
-          ./cdk.out/publish-110e18dfbcf5cf9d2a3778bf70a12ceccf9eb10d7dd493ef917073e32450a46c-1d809251f13d18b9dbac8b0b9b5f41bc-step.sh
+      - name: Publish Assets-FileAsset4
+        run: /bin/bash ./cdk.out/publish-Assets-FileAsset4-step.sh
   Assets-FileAsset5:
     name: Publish Assets Assets-FileAsset5
     needs:
@@ -142,10 +126,8 @@ jobs:
           aws-region: us-west-2
           role-skip-session-tagging: true
           role-duration-seconds: 1800
-      - name: Publish bd666a7ff96df3c3eff5a60fb6785e2194b73cc264efd599ec51fb7625272515
-          (template)
-        run: /bin/bash
-          ./cdk.out/publish-bd666a7ff96df3c3eff5a60fb6785e2194b73cc264efd599ec51fb7625272515-e116b3641356fb21b24ddd2875d990af-step.sh
+      - name: Publish Assets-FileAsset5
+        run: /bin/bash ./cdk.out/publish-Assets-FileAsset5-step.sh
   Assets-FileAsset6:
     name: Publish Assets Assets-FileAsset6
     needs:
@@ -165,10 +147,8 @@ jobs:
           aws-region: us-west-2
           role-skip-session-tagging: true
           role-duration-seconds: 1800
-      - name: Publish 9a91118226505d44e6d73e1f9959589e089e71d81cfdc950ff2ebb7cf9ba5c9e
-          (template)
-        run: /bin/bash
-          ./cdk.out/publish-9a91118226505d44e6d73e1f9959589e089e71d81cfdc950ff2ebb7cf9ba5c9e-109819abf2411518186db71f2ecb4574-step.sh
+      - name: Publish Assets-FileAsset6
+        run: /bin/bash ./cdk.out/publish-Assets-FileAsset6-step.sh
   StageA-BucketStack-Deploy:
     name: Deploy StageABucketStackEAC67DBE
     permissions:
