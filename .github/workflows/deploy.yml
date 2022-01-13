@@ -185,6 +185,16 @@ jobs:
           ./cdk.out/publish-e3ec540527291ed884295bbab2f70a795cff41a0ce5c24344dcd1e35dbeb56e5-804a72bb2dd138cfc6f0c35ddd625666-step.sh
           &&
           ./cdk.out/publish-e3ec540527291ed884295bbab2f70a795cff41a0ce5c24344dcd1e35dbeb56e5-804a72bb2dd138cfc6f0c35ddd625666-step.sh
+  StageA-Pre:
+    name: Pre
+    permissions:
+      contents: read
+    runs-on: ubuntu-latest
+    needs:
+      - Build-Build
+    env: {}
+    steps:
+      - run: echo hello
   StageA-BucketStack-Deploy:
     name: Deploy StageABucketStackEAC67DBE
     permissions:
@@ -193,6 +203,7 @@ jobs:
       - Build-Build
       - Assets-FileAsset1
       - Assets-FileAsset2
+      - StageA-Pre
       - Build-Build
     runs-on: ubuntu-latest
     steps:
@@ -220,6 +231,7 @@ jobs:
       - Assets-FileAsset3
       - Assets-FileAsset4
       - StageA-BucketStack-Deploy
+      - StageA-Pre
       - Build-Build
     runs-on: ubuntu-latest
     steps:
@@ -238,6 +250,18 @@ jobs:
           template: https://cdk-hnb659fds-assets-489318732371-us-east-1.s3.us-east-1.amazonaws.com/51318b8aa2e4347ae4e4bb67ed3423231fe3ed7b6b59f399cda16b76daf454f6.json
           no-fail-on-empty-changeset: "1"
           role-arn: arn:aws:iam::489318732371:role/cdk-hnb659fds-cfn-exec-role-489318732371-us-east-1
+  StageA-Post:
+    name: Post
+    permissions:
+      contents: read
+    runs-on: ubuntu-latest
+    needs:
+      - StageA-BucketStack-Deploy
+      - StageA-FunctionStack-Deploy
+      - Build-Build
+    env: {}
+    steps:
+      - run: echo bye
   StageB-BucketStack-Deploy:
     name: Deploy StageBBucketStackDF3FFF07
     permissions:
@@ -249,6 +273,8 @@ jobs:
       - Build-Build
       - StageA-BucketStack-Deploy
       - StageA-FunctionStack-Deploy
+      - StageA-Pre
+      - StageA-Post
     runs-on: ubuntu-latest
     steps:
       - uses: aws-actions/configure-aws-credentials@v1
@@ -278,6 +304,8 @@ jobs:
       - Build-Build
       - StageA-BucketStack-Deploy
       - StageA-FunctionStack-Deploy
+      - StageA-Pre
+      - StageA-Post
     runs-on: ubuntu-latest
     steps:
       - uses: aws-actions/configure-aws-credentials@v1
