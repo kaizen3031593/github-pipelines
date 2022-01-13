@@ -223,7 +223,7 @@ jobs:
         env:
           NAME: ${{ steps.step2.outputs.myout }}
           STACK: ${{ steps.step2.outputs.stack-id }}
-          TEST: ${{steps.step2.outputs}}
+          TEST: ${{toJSON(steps.step2.outputs)}}
         run: |
           echo "My Out: $NAME"
           echo "Stack: $STACK"
@@ -241,6 +241,7 @@ jobs:
     steps:
       - run: |
           echo outputs: ${{toJSON(needs.StageA-FunctionStack-Deploy.outputs.stack-outputs).myout}}
+          echo ${{needs.StageA-FunctionStack-Deploy.outputs.stack-outputs.myout}}
   StageB-BucketStack-Deploy:
     name: Deploy StageBBucketStackDF3FFF07
     permissions:
