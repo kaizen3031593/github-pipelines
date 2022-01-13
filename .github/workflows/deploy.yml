@@ -44,9 +44,7 @@ jobs:
           role-duration-seconds: 1800
       - name: Publish 43c50b5121383d1a98a3b94b5ed566638062eaf235db714bd5c65a94419c7fcf
           (template)
-        run: chmod +x
-          ./cdk.out/publish-43c50b5121383d1a98a3b94b5ed566638062eaf235db714bd5c65a94419c7fcf-91496a4719661cb31cce8293fa062ec5-step.sh
-          &&
+        run: /bin/bash
           ./cdk.out/publish-43c50b5121383d1a98a3b94b5ed566638062eaf235db714bd5c65a94419c7fcf-91496a4719661cb31cce8293fa062ec5-step.sh
   Assets-FileAsset2:
     name: Publish Assets Assets-FileAsset2
@@ -69,15 +67,11 @@ jobs:
           role-duration-seconds: 1800
       - name: "Publish bdb08b9984816ecf43301a0c6d8913e270ee2448940b6b95e430dd222a4d90be
           "
-        run: chmod +x
-          ./cdk.out/publish-bdb08b9984816ecf43301a0c6d8913e270ee2448940b6b95e430dd222a4d90be-f9e12910e805a99a2dc34d34ad06af3f-step.sh
-          &&
+        run: /bin/bash
           ./cdk.out/publish-bdb08b9984816ecf43301a0c6d8913e270ee2448940b6b95e430dd222a4d90be-f9e12910e805a99a2dc34d34ad06af3f-step.sh
       - name: "Publish bdb08b9984816ecf43301a0c6d8913e270ee2448940b6b95e430dd222a4d90be
           "
-        run: chmod +x
-          ./cdk.out/publish-bdb08b9984816ecf43301a0c6d8913e270ee2448940b6b95e430dd222a4d90be-86d669e39427df5b47caf6c25aa25241-step.sh
-          &&
+        run: /bin/bash
           ./cdk.out/publish-bdb08b9984816ecf43301a0c6d8913e270ee2448940b6b95e430dd222a4d90be-86d669e39427df5b47caf6c25aa25241-step.sh
   Assets-FileAsset3:
     name: Publish Assets Assets-FileAsset3
@@ -98,12 +92,10 @@ jobs:
           aws-region: us-west-2
           role-skip-session-tagging: true
           role-duration-seconds: 1800
-      - name: Publish 51318b8aa2e4347ae4e4bb67ed3423231fe3ed7b6b59f399cda16b76daf454f6
+      - name: Publish 2616f16766dabf4f57f76aa263cab30ed3b30c45e8dfc6cc9ae81cdd53080c3d
           (template)
-        run: chmod +x
-          ./cdk.out/publish-51318b8aa2e4347ae4e4bb67ed3423231fe3ed7b6b59f399cda16b76daf454f6-20a508e1961a979d33efd29ede15c6ee-step.sh
-          &&
-          ./cdk.out/publish-51318b8aa2e4347ae4e4bb67ed3423231fe3ed7b6b59f399cda16b76daf454f6-20a508e1961a979d33efd29ede15c6ee-step.sh
+        run: /bin/bash
+          ./cdk.out/publish-2616f16766dabf4f57f76aa263cab30ed3b30c45e8dfc6cc9ae81cdd53080c3d-1fa00c1e551bdb921be2ed8b3b746e5b-step.sh
   Assets-FileAsset4:
     name: Publish Assets Assets-FileAsset4
     needs:
@@ -125,15 +117,11 @@ jobs:
           role-duration-seconds: 1800
       - name: "Publish 110e18dfbcf5cf9d2a3778bf70a12ceccf9eb10d7dd493ef917073e32450a46c
           "
-        run: chmod +x
-          ./cdk.out/publish-110e18dfbcf5cf9d2a3778bf70a12ceccf9eb10d7dd493ef917073e32450a46c-f4bf3e00cb0c9078f17313352108d0b0-step.sh
-          &&
+        run: /bin/bash
           ./cdk.out/publish-110e18dfbcf5cf9d2a3778bf70a12ceccf9eb10d7dd493ef917073e32450a46c-f4bf3e00cb0c9078f17313352108d0b0-step.sh
       - name: "Publish 110e18dfbcf5cf9d2a3778bf70a12ceccf9eb10d7dd493ef917073e32450a46c
           "
-        run: chmod +x
-          ./cdk.out/publish-110e18dfbcf5cf9d2a3778bf70a12ceccf9eb10d7dd493ef917073e32450a46c-1d809251f13d18b9dbac8b0b9b5f41bc-step.sh
-          &&
+        run: /bin/bash
           ./cdk.out/publish-110e18dfbcf5cf9d2a3778bf70a12ceccf9eb10d7dd493ef917073e32450a46c-1d809251f13d18b9dbac8b0b9b5f41bc-step.sh
   Assets-FileAsset5:
     name: Publish Assets Assets-FileAsset5
@@ -156,9 +144,7 @@ jobs:
           role-duration-seconds: 1800
       - name: Publish bd666a7ff96df3c3eff5a60fb6785e2194b73cc264efd599ec51fb7625272515
           (template)
-        run: chmod +x
-          ./cdk.out/publish-bd666a7ff96df3c3eff5a60fb6785e2194b73cc264efd599ec51fb7625272515-e116b3641356fb21b24ddd2875d990af-step.sh
-          &&
+        run: /bin/bash
           ./cdk.out/publish-bd666a7ff96df3c3eff5a60fb6785e2194b73cc264efd599ec51fb7625272515-e116b3641356fb21b24ddd2875d990af-step.sh
   Assets-FileAsset6:
     name: Publish Assets Assets-FileAsset6
@@ -179,22 +165,10 @@ jobs:
           aws-region: us-west-2
           role-skip-session-tagging: true
           role-duration-seconds: 1800
-      - name: Publish e3ec540527291ed884295bbab2f70a795cff41a0ce5c24344dcd1e35dbeb56e5
+      - name: Publish 9a91118226505d44e6d73e1f9959589e089e71d81cfdc950ff2ebb7cf9ba5c9e
           (template)
-        run: chmod +x
-          ./cdk.out/publish-e3ec540527291ed884295bbab2f70a795cff41a0ce5c24344dcd1e35dbeb56e5-804a72bb2dd138cfc6f0c35ddd625666-step.sh
-          &&
-          ./cdk.out/publish-e3ec540527291ed884295bbab2f70a795cff41a0ce5c24344dcd1e35dbeb56e5-804a72bb2dd138cfc6f0c35ddd625666-step.sh
-  StageA-Pre:
-    name: Pre
-    permissions:
-      contents: read
-    runs-on: ubuntu-latest
-    needs:
-      - Build-Build
-    env: {}
-    steps:
-      - run: echo hello
+        run: /bin/bash
+          ./cdk.out/publish-9a91118226505d44e6d73e1f9959589e089e71d81cfdc950ff2ebb7cf9ba5c9e-109819abf2411518186db71f2ecb4574-step.sh
   StageA-BucketStack-Deploy:
     name: Deploy StageABucketStackEAC67DBE
     permissions:
@@ -203,7 +177,6 @@ jobs:
       - Build-Build
       - Assets-FileAsset1
       - Assets-FileAsset2
-      - StageA-Pre
       - Build-Build
     runs-on: ubuntu-latest
     steps:
@@ -231,7 +204,6 @@ jobs:
       - Assets-FileAsset3
       - Assets-FileAsset4
       - StageA-BucketStack-Deploy
-      - StageA-Pre
       - Build-Build
     runs-on: ubuntu-latest
     steps:
@@ -247,21 +219,9 @@ jobs:
       - uses: aws-actions/aws-cloudformation-github-deploy@v1
         with:
           name: StageA-FunctionStack
-          template: https://cdk-hnb659fds-assets-489318732371-us-east-1.s3.us-east-1.amazonaws.com/51318b8aa2e4347ae4e4bb67ed3423231fe3ed7b6b59f399cda16b76daf454f6.json
+          template: https://cdk-hnb659fds-assets-489318732371-us-east-1.s3.us-east-1.amazonaws.com/2616f16766dabf4f57f76aa263cab30ed3b30c45e8dfc6cc9ae81cdd53080c3d.json
           no-fail-on-empty-changeset: "1"
           role-arn: arn:aws:iam::489318732371:role/cdk-hnb659fds-cfn-exec-role-489318732371-us-east-1
-  StageA-Post:
-    name: Post
-    permissions:
-      contents: read
-    runs-on: ubuntu-latest
-    needs:
-      - StageA-BucketStack-Deploy
-      - StageA-FunctionStack-Deploy
-      - Build-Build
-    env: {}
-    steps:
-      - run: echo bye
   StageB-BucketStack-Deploy:
     name: Deploy StageBBucketStackDF3FFF07
     permissions:
@@ -273,8 +233,6 @@ jobs:
       - Build-Build
       - StageA-BucketStack-Deploy
       - StageA-FunctionStack-Deploy
-      - StageA-Pre
-      - StageA-Post
     runs-on: ubuntu-latest
     steps:
       - uses: aws-actions/configure-aws-credentials@v1
@@ -304,8 +262,6 @@ jobs:
       - Build-Build
       - StageA-BucketStack-Deploy
       - StageA-FunctionStack-Deploy
-      - StageA-Pre
-      - StageA-Post
     runs-on: ubuntu-latest
     steps:
       - uses: aws-actions/configure-aws-credentials@v1
@@ -320,6 +276,6 @@ jobs:
       - uses: aws-actions/aws-cloudformation-github-deploy@v1
         with:
           name: StageB-FunctionStack
-          template: https://cdk-hnb659fds-assets-489318732371-eu-west-1.s3.eu-west-1.amazonaws.com/e3ec540527291ed884295bbab2f70a795cff41a0ce5c24344dcd1e35dbeb56e5.json
+          template: https://cdk-hnb659fds-assets-489318732371-eu-west-1.s3.eu-west-1.amazonaws.com/9a91118226505d44e6d73e1f9959589e089e71d81cfdc950ff2ebb7cf9ba5c9e.json
           no-fail-on-empty-changeset: "1"
           role-arn: arn:aws:iam::489318732371:role/cdk-hnb659fds-cfn-exec-role-489318732371-eu-west-1

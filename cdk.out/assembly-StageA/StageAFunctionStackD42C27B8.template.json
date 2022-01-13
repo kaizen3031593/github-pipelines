@@ -112,6 +112,13 @@
       }
     }
   },
+  "Outputs": {
+    "myout": {
+      "Value": {
+        "Ref": "Function76856677"
+      }
+    }
+  },
   "Parameters": {
     "BootstrapVersion": {
       "Type": "AWS::SSM::Parameter::Value<String>",
