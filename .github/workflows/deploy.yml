@@ -199,10 +199,10 @@ jobs:
       - Build-Build
     runs-on: ubuntu-latest
     outputs:
-      stack-id: ${{ steps.step1.outputs.stack-id }}
+      stack-id: ${{ steps.step2.outputs.stack-id }}
     steps:
       - id: step1
-      - uses: aws-actions/configure-aws-credentials@v1
+        uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -211,7 +211,8 @@ jobs:
           role-duration-seconds: 1800
           role-to-assume: arn:aws:iam::489318732371:role/cdk-hnb659fds-deploy-role-489318732371-us-east-1
           role-external-id: Pipeline
-      - uses: aws-actions/aws-cloudformation-github-deploy@v1
+      - id: step2
+        uses: aws-actions/aws-cloudformation-github-deploy@v1
         with:
           name: StageA-FunctionStack
           template: https://cdk-hnb659fds-assets-489318732371-us-east-1.s3.us-east-1.amazonaws.com/2616f16766dabf4f57f76aa263cab30ed3b30c45e8dfc6cc9ae81cdd53080c3d.json
