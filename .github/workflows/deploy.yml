@@ -199,8 +199,7 @@ jobs:
       - Build-Build
     runs-on: ubuntu-latest
     outputs:
-      stack-id: ${{ steps.step2.outputs.stack-id }}
-      myout: ${{ steps.step2.outputs.myout }}
+      stack-outputs: ${{toJSON(steps.step2.outputs)}}
     steps:
       - id: step1
         uses: aws-actions/configure-aws-credentials@v1
@@ -240,8 +239,7 @@ jobs:
     env: {}
     steps:
       - run: |
-          echo myout: ${{needs.StageA-FunctionStack-Deploy.outputs.myout}}
-          echo stack: ${{needs.StageA-FunctionStack-Deploy.outputs.stack-id}}
+          echo outputs: ${{fromJSON(needs.StageA-FunctionStack-Deploy.outputs.stack-outputs)}}
   StageB-BucketStack-Deploy:
     name: Deploy StageBBucketStackDF3FFF07
     permissions:
