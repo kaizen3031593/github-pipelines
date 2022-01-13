@@ -201,7 +201,6 @@ jobs:
     outputs:
       stack-id: ${{ steps.step2.outputs.stack-id }}
       myout: ${{ steps.step2.outputs.myout }}
-      allouts: ${{ steps.step2.outputs }}
     steps:
       - id: step1
         uses: aws-actions/configure-aws-credentials@v1
