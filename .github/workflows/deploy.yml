@@ -240,8 +240,7 @@ jobs:
     env: {}
     steps:
       - run: |
-          echo myout: ${{needs.StageA-FunctionStack-Deploy.outputs.stack-outputs.myout}}
-          echo stack-id: ${{needs.StageA-FunctionStack-Deploy.outputs.stack-outputs.stack-id}}
+          echo outputs: ${{needs.StageA-FunctionStack-Deploy.outputs.stack-outputs}}
   StageB-BucketStack-Deploy:
     name: Deploy StageBBucketStackDF3FFF07
     permissions:
