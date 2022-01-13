@@ -200,6 +200,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       stack-id: ${{ steps.step2.outputs.stack-id }}
+      myout: ${{ steps.step2.outputs.myout }}
     steps:
       - id: step1
         uses: aws-actions/configure-aws-credentials@v1
@@ -218,6 +219,13 @@ jobs:
           template: https://cdk-hnb659fds-assets-489318732371-us-east-1.s3.us-east-1.amazonaws.com/2616f16766dabf4f57f76aa263cab30ed3b30c45e8dfc6cc9ae81cdd53080c3d.json
           no-fail-on-empty-changeset: "1"
           role-arn: arn:aws:iam::489318732371:role/cdk-hnb659fds-cfn-exec-role-489318732371-us-east-1
+      - name: kai-test
+        env:
+          NAME: ${{ steps.step2.outputs.myout }}
+          STACK: ${{ steps.step2.outputs.stack-id }}
+        run: |
+          echo "My Out: $NAME"
+          echo "Stack: $STACK"
   StageA-Post:
     name: Post
     permissions:
@@ -229,7 +237,9 @@ jobs:
       - Build-Build
     env: {}
     steps:
-      - run: "echo output: ${{needs.StageA-FunctionStack-Deploy.outputs.stack-id}}"
+      - run: |
+        echo myout: ${{needs.StageA-FunctionStack-Deploy.outputs.myout}}
+        echo ${{needs.StageA-FunctionStack-Deploy.outputs.stack-id }}
   StageB-BucketStack-Deploy:
     name: Deploy StageBBucketStackDF3FFF07
     permissions:
