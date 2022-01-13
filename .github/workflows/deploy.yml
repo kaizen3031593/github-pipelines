@@ -241,8 +241,8 @@ jobs:
       TEST: ${{toJSON(needs.StageA-FunctionStack-Deploy.outputs.stack-outputs)}}
     steps:
       - run: |
-          echo $TEST | jq ".myout"
-          echo $TEST | jq "."
+          echo $TEST | jq '.myout'
+          echo $TEST | jq '.'
   StageB-BucketStack-Deploy:
     name: Deploy StageBBucketStackDF3FFF07
     permissions:
