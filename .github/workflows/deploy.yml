@@ -211,6 +211,7 @@ jobs:
           role-duration-seconds: 1800
           role-to-assume: arn:aws:iam::489318732371:role/cdk-hnb659fds-deploy-role-489318732371-us-east-1
           role-external-id: Pipeline
+          mask-aws-account-id: false
       - id: step2
         uses: aws-actions/aws-cloudformation-github-deploy@v1
         with:
