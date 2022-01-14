@@ -180,7 +180,8 @@ jobs:
           role-duration-seconds: 1800
           role-to-assume: arn:aws:iam::489318732371:role/cdk-hnb659fds-deploy-role-489318732371-us-east-1
           role-external-id: Pipeline
-      - uses: aws-actions/aws-cloudformation-github-deploy@v1
+      - id: StageABucketStackEAC67DBE
+        uses: aws-actions/aws-cloudformation-github-deploy@v1
         with:
           name: StageA-BucketStack
           template: https://cdk-hnb659fds-assets-489318732371-us-east-1.s3.us-east-1.amazonaws.com/43c50b5121383d1a98a3b94b5ed566638062eaf235db714bd5c65a94419c7fcf.json
@@ -198,11 +199,8 @@ jobs:
       - StageA-Pre
       - Build-Build
     runs-on: ubuntu-latest
-    outputs:
-      stack-outputs: ${{toJSON(steps.step2.outputs)}}
     steps:
-      - id: step1
-        uses: aws-actions/configure-aws-credentials@v1
+      - uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -211,38 +209,29 @@ jobs:
           role-duration-seconds: 1800
           role-to-assume: arn:aws:iam::489318732371:role/cdk-hnb659fds-deploy-role-489318732371-us-east-1
           role-external-id: Pipeline
-          mask-aws-account-id: false
-      - id: step2
+      - id: StageAFunctionStackD42C27B8
         uses: aws-actions/aws-cloudformation-github-deploy@v1
         with:
           name: StageA-FunctionStack
           template: https://cdk-hnb659fds-assets-489318732371-us-east-1.s3.us-east-1.amazonaws.com/2616f16766dabf4f57f76aa263cab30ed3b30c45e8dfc6cc9ae81cdd53080c3d.json
           no-fail-on-empty-changeset: "1"
           role-arn: arn:aws:iam::489318732371:role/cdk-hnb659fds-cfn-exec-role-489318732371-us-east-1
-      - name: kai-test
-        env:
-          NAME: ${{ steps.step2.outputs.myout }}
-          STACK: ${{ steps.step2.outputs.stack-id }}
-          TEST: ${{toJSON(steps.step2.outputs)}}
-        run: |
-          echo "My Out: $NAME"
-          echo "Stack: $STACK"
-          echo "Test: $TEST"
+    outputs:
+      myout: ${{ steps.StageAFunctionStackD42C27B8.outputs.myout }}
   StageA-Post:
     name: Post
     permissions:
       contents: read
     runs-on: ubuntu-latest
     needs:
+      - StageA-FunctionStack-Deploy
       - StageA-BucketStack-Deploy
       - StageA-FunctionStack-Deploy
       - Build-Build
     env:
-      TEST: ${{toJSON(needs.StageA-FunctionStack-Deploy.outputs.stack-outputs)}}
+      FN_NAME: ${{ needs.StageA-FunctionStack-Deploy.outputs.myout }}
     steps:
-      - run: |
-          echo $TEST | jq 'fromjson|.myout'
-          echo $TEST | jq 'fromjson|.'
+      - run: "echo FN_NAME equals: $FN_NAME"
   StageB-BucketStack-Deploy:
     name: Deploy StageBBucketStackDF3FFF07
     permissions:
@@ -267,7 +256,8 @@ jobs:
           role-duration-seconds: 1800
           role-to-assume: arn:aws:iam::489318732371:role/cdk-hnb659fds-deploy-role-489318732371-eu-west-1
           role-external-id: Pipeline
-      - uses: aws-actions/aws-cloudformation-github-deploy@v1
+      - id: StageBBucketStackDF3FFF07
+        uses: aws-actions/aws-cloudformation-github-deploy@v1
         with:
           name: StageB-BucketStack
           template: https://cdk-hnb659fds-assets-489318732371-eu-west-1.s3.eu-west-1.amazonaws.com/bd666a7ff96df3c3eff5a60fb6785e2194b73cc264efd599ec51fb7625272515.json
@@ -298,7 +288,8 @@ jobs:
           role-duration-seconds: 1800
           role-to-assume: arn:aws:iam::489318732371:role/cdk-hnb659fds-deploy-role-489318732371-eu-west-1
           role-external-id: Pipeline
-      - uses: aws-actions/aws-cloudformation-github-deploy@v1
+      - id: StageBFunctionStack18098DCD
+        uses: aws-actions/aws-cloudformation-github-deploy@v1
         with:
           name: StageB-FunctionStack
           template: https://cdk-hnb659fds-assets-489318732371-eu-west-1.s3.eu-west-1.amazonaws.com/9a91118226505d44e6d73e1f9959589e089e71d81cfdc950ff2ebb7cf9ba5c9e.json
