@@ -167,10 +167,9 @@ jobs:
     steps:
       - uses: aws-actions/configure-aws-credentials@v1
         with:
-          role-to-assume: arn:aws:iam::489318732371:role/cdk-hnb659fds-deploy-role-489318732371-us-east-1
+          role-to-assume: arn:aws:iam::489318732371:role/github-oidc-test
           role-duration-seconds: 1800
           aws-region: us-east-1
-          role-external-id: Pipeline
       - id: Deploy
         uses: aws-actions/aws-cloudformation-github-deploy@v1
         with:
@@ -193,10 +192,9 @@ jobs:
     steps:
       - uses: aws-actions/configure-aws-credentials@v1
         with:
-          role-to-assume: arn:aws:iam::489318732371:role/cdk-hnb659fds-deploy-role-489318732371-us-east-1
+          role-to-assume: arn:aws:iam::489318732371:role/github-oidc-test
           role-duration-seconds: 1800
           aws-region: us-east-1
-          role-external-id: Pipeline
       - id: Deploy
         uses: aws-actions/aws-cloudformation-github-deploy@v1
         with:
@@ -237,10 +235,9 @@ jobs:
     steps:
       - uses: aws-actions/configure-aws-credentials@v1
         with:
-          role-to-assume: arn:aws:iam::489318732371:role/cdk-hnb659fds-deploy-role-489318732371-eu-west-1
+          role-to-assume: arn:aws:iam::489318732371:role/github-oidc-test
           role-duration-seconds: 1800
           aws-region: eu-west-1
-          role-external-id: Pipeline
       - id: Deploy
         uses: aws-actions/aws-cloudformation-github-deploy@v1
         with:
@@ -266,10 +263,9 @@ jobs:
     steps:
       - uses: aws-actions/configure-aws-credentials@v1
         with:
-          role-to-assume: arn:aws:iam::489318732371:role/cdk-hnb659fds-deploy-role-489318732371-eu-west-1
+          role-to-assume: arn:aws:iam::489318732371:role/github-oidc-test
           role-duration-seconds: 1800
           aws-region: eu-west-1
-          role-external-id: Pipeline
       - id: Deploy
         uses: aws-actions/aws-cloudformation-github-deploy@v1
         with:
