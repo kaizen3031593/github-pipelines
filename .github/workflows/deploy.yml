@@ -39,7 +39,7 @@ jobs:
       - uses: aws-actions/configure-aws-credentials@v1
         with:
           role-to-assume: arn:aws:iam::489318732371:role/github-oidc-test
-          role-session-name: Pipeline
+          role-duration-seconds: 1800
           aws-region: us-west-2
       - name: Publish Assets-FileAsset1
         run: /bin/bash ./cdk.out/publish-Assets-FileAsset1-step.sh
@@ -59,7 +59,7 @@ jobs:
       - uses: aws-actions/configure-aws-credentials@v1
         with:
           role-to-assume: arn:aws:iam::489318732371:role/github-oidc-test
-          role-session-name: Pipeline
+          role-duration-seconds: 1800
           aws-region: us-west-2
       - name: Publish Assets-FileAsset2
         run: /bin/bash ./cdk.out/publish-Assets-FileAsset2-step.sh
@@ -79,7 +79,7 @@ jobs:
       - uses: aws-actions/configure-aws-credentials@v1
         with:
           role-to-assume: arn:aws:iam::489318732371:role/github-oidc-test
-          role-session-name: Pipeline
+          role-duration-seconds: 1800
           aws-region: us-west-2
       - name: Publish Assets-FileAsset3
         run: /bin/bash ./cdk.out/publish-Assets-FileAsset3-step.sh
@@ -99,7 +99,7 @@ jobs:
       - uses: aws-actions/configure-aws-credentials@v1
         with:
           role-to-assume: arn:aws:iam::489318732371:role/github-oidc-test
-          role-session-name: Pipeline
+          role-duration-seconds: 1800
           aws-region: us-west-2
       - name: Publish Assets-FileAsset4
         run: /bin/bash ./cdk.out/publish-Assets-FileAsset4-step.sh
@@ -119,7 +119,7 @@ jobs:
       - uses: aws-actions/configure-aws-credentials@v1
         with:
           role-to-assume: arn:aws:iam::489318732371:role/github-oidc-test
-          role-session-name: Pipeline
+          role-duration-seconds: 1800
           aws-region: us-west-2
       - name: Publish Assets-FileAsset5
         run: /bin/bash ./cdk.out/publish-Assets-FileAsset5-step.sh
@@ -139,7 +139,7 @@ jobs:
       - uses: aws-actions/configure-aws-credentials@v1
         with:
           role-to-assume: arn:aws:iam::489318732371:role/github-oidc-test
-          role-session-name: Pipeline
+          role-duration-seconds: 1800
           aws-region: us-west-2
       - name: Publish Assets-FileAsset6
         run: /bin/bash ./cdk.out/publish-Assets-FileAsset6-step.sh
@@ -168,7 +168,7 @@ jobs:
       - uses: aws-actions/configure-aws-credentials@v1
         with:
           role-to-assume: arn:aws:iam::489318732371:role/github-oidc-test
-          role-session-name: Pipeline
+          role-duration-seconds: 1800
           aws-region: us-east-1
       - id: Deploy
         uses: aws-actions/aws-cloudformation-github-deploy@v1
@@ -193,7 +193,7 @@ jobs:
       - uses: aws-actions/configure-aws-credentials@v1
         with:
           role-to-assume: arn:aws:iam::489318732371:role/github-oidc-test
-          role-session-name: Pipeline
+          role-duration-seconds: 1800
           aws-region: us-east-1
       - id: Deploy
         uses: aws-actions/aws-cloudformation-github-deploy@v1
@@ -236,7 +236,7 @@ jobs:
       - uses: aws-actions/configure-aws-credentials@v1
         with:
           role-to-assume: arn:aws:iam::489318732371:role/github-oidc-test
-          role-session-name: Pipeline
+          role-duration-seconds: 1800
           aws-region: eu-west-1
       - id: Deploy
         uses: aws-actions/aws-cloudformation-github-deploy@v1
@@ -264,7 +264,7 @@ jobs:
       - uses: aws-actions/configure-aws-credentials@v1
         with:
           role-to-assume: arn:aws:iam::489318732371:role/github-oidc-test
-          role-session-name: Pipeline
+          role-duration-seconds: 1800
           aws-region: eu-west-1
       - id: Deploy
         uses: aws-actions/aws-cloudformation-github-deploy@v1
