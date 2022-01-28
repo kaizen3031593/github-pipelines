@@ -38,7 +38,7 @@ jobs:
         run: npm install --no-save cdk-assets
       - uses: aws-actions/configure-aws-credentials@v1
         with:
-          role-to-assume: arn:aws:iam::489318732371:role/NewcdkStack-oidcrolegithubrole78A9B404-SYRMW58E7CK9
+          role-to-assume: arn:aws:iam::489318732371:role/github-oidc-test
           role-duration-seconds: 1800
           aws-region: us-west-2
       - name: Publish Assets-FileAsset1
@@ -58,7 +58,7 @@ jobs:
         run: npm install --no-save cdk-assets
       - uses: aws-actions/configure-aws-credentials@v1
         with:
-          role-to-assume: arn:aws:iam::489318732371:role/NewcdkStack-oidcrolegithubrole78A9B404-SYRMW58E7CK9
+          role-to-assume: arn:aws:iam::489318732371:role/github-oidc-test
           role-duration-seconds: 1800
           aws-region: us-west-2
       - name: Publish Assets-FileAsset2
@@ -78,7 +78,7 @@ jobs:
         run: npm install --no-save cdk-assets
       - uses: aws-actions/configure-aws-credentials@v1
         with:
-          role-to-assume: arn:aws:iam::489318732371:role/NewcdkStack-oidcrolegithubrole78A9B404-SYRMW58E7CK9
+          role-to-assume: arn:aws:iam::489318732371:role/github-oidc-test
           role-duration-seconds: 1800
           aws-region: us-west-2
       - name: Publish Assets-FileAsset3
@@ -98,7 +98,7 @@ jobs:
         run: npm install --no-save cdk-assets
       - uses: aws-actions/configure-aws-credentials@v1
         with:
-          role-to-assume: arn:aws:iam::489318732371:role/NewcdkStack-oidcrolegithubrole78A9B404-SYRMW58E7CK9
+          role-to-assume: arn:aws:iam::489318732371:role/github-oidc-test
           role-duration-seconds: 1800
           aws-region: us-west-2
       - name: Publish Assets-FileAsset4
@@ -118,7 +118,7 @@ jobs:
         run: npm install --no-save cdk-assets
       - uses: aws-actions/configure-aws-credentials@v1
         with:
-          role-to-assume: arn:aws:iam::489318732371:role/NewcdkStack-oidcrolegithubrole78A9B404-SYRMW58E7CK9
+          role-to-assume: arn:aws:iam::489318732371:role/github-oidc-test
           role-duration-seconds: 1800
           aws-region: us-west-2
       - name: Publish Assets-FileAsset5
@@ -138,7 +138,7 @@ jobs:
         run: npm install --no-save cdk-assets
       - uses: aws-actions/configure-aws-credentials@v1
         with:
-          role-to-assume: arn:aws:iam::489318732371:role/NewcdkStack-oidcrolegithubrole78A9B404-SYRMW58E7CK9
+          role-to-assume: arn:aws:iam::489318732371:role/github-oidc-test
           role-duration-seconds: 1800
           aws-region: us-west-2
       - name: Publish Assets-FileAsset6
@@ -167,7 +167,7 @@ jobs:
     steps:
       - uses: aws-actions/configure-aws-credentials@v1
         with:
-          role-to-assume: arn:aws:iam::489318732371:role/NewcdkStack-oidcrolegithubrole78A9B404-SYRMW58E7CK9
+          role-to-assume: arn:aws:iam::489318732371:role/github-oidc-test
           role-duration-seconds: 1800
           aws-region: us-east-1
       - id: Deploy
@@ -192,7 +192,7 @@ jobs:
     steps:
       - uses: aws-actions/configure-aws-credentials@v1
         with:
-          role-to-assume: arn:aws:iam::489318732371:role/NewcdkStack-oidcrolegithubrole78A9B404-SYRMW58E7CK9
+          role-to-assume: arn:aws:iam::489318732371:role/github-oidc-test
           role-duration-seconds: 1800
           aws-region: us-east-1
       - id: Deploy
@@ -235,7 +235,7 @@ jobs:
     steps:
       - uses: aws-actions/configure-aws-credentials@v1
         with:
-          role-to-assume: arn:aws:iam::489318732371:role/NewcdkStack-oidcrolegithubrole78A9B404-SYRMW58E7CK9
+          role-to-assume: arn:aws:iam::489318732371:role/github-oidc-test
           role-duration-seconds: 1800
           aws-region: eu-west-1
       - id: Deploy
@@ -263,7 +263,7 @@ jobs:
     steps:
       - uses: aws-actions/configure-aws-credentials@v1
         with:
-          role-to-assume: arn:aws:iam::489318732371:role/NewcdkStack-oidcrolegithubrole78A9B404-SYRMW58E7CK9
+          role-to-assume: arn:aws:iam::489318732371:role/github-oidc-test
           role-duration-seconds: 1800
           aws-region: eu-west-1
       - id: Deploy
