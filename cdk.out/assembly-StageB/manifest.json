@@ -1,5 +1,5 @@
 {
-  "version": "15.0.0",
+  "version": "16.0.0",
   "artifacts": {
     "StageBFunctionStack18098DCD.assets": {
       "type": "cdk:asset-manifest",
@@ -17,12 +17,17 @@
         "validateOnSynth": true,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::489318732371:role/cdk-hnb659fds-deploy-role-489318732371-eu-west-1",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::489318732371:role/cdk-hnb659fds-cfn-exec-role-489318732371-eu-west-1",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-489318732371-eu-west-1/9a91118226505d44e6d73e1f9959589e089e71d81cfdc950ff2ebb7cf9ba5c9e.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-489318732371-eu-west-1/c54cdade79778215de060631e6323869d9ddc6d782bfda2aa074d473c509e9e7.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
           "StageBFunctionStack18098DCD.assets"
         ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::489318732371:role/cdk-hnb659fds-lookup-role-489318732371-eu-west-1",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        },
         "stackName": "StageB-FunctionStack"
       },
       "dependencies": [
@@ -30,6 +35,24 @@
         "StageBFunctionStack18098DCD.assets"
       ],
       "metadata": {
+        "/StageB/FunctionStack/MyProject/Role/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyProjectRole9BBE5233"
+          }
+        ],
+        "/StageB/FunctionStack/MyProject/Role/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyProjectRoleDefaultPolicyB19B7C29"
+          }
+        ],
+        "/StageB/FunctionStack/MyProject/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyProject39F7B0AE"
+          }
+        ],
         "/StageB/FunctionStack/Function/ServiceRole/Resource": [
           {
             "type": "aws:cdk:logicalId",
@@ -91,6 +114,11 @@
         "additionalDependencies": [
           "StageBBucketStackDF3FFF07.assets"
         ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::489318732371:role/cdk-hnb659fds-lookup-role-489318732371-eu-west-1",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        },
         "stackName": "StageB-BucketStack"
       },
       "dependencies": [
