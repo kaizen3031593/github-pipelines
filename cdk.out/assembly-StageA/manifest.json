@@ -17,7 +17,7 @@
         "validateOnSynth": true,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::489318732371:role/cdk-hnb659fds-deploy-role-489318732371-us-east-1",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::489318732371:role/cdk-hnb659fds-cfn-exec-role-489318732371-us-east-1",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-489318732371-us-east-1/5090e93bc6a8e12eece731b4298ea8a9f8c064e8f4319516c1f6cbd634484776.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-489318732371-us-east-1/2616f16766dabf4f57f76aa263cab30ed3b30c45e8dfc6cc9ae81cdd53080c3d.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
@@ -35,24 +35,6 @@
         "StageAFunctionStackD42C27B8.assets"
       ],
       "metadata": {
-        "/StageA/FunctionStack/MyProject/Role/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "MyProjectRole9BBE5233"
-          }
-        ],
-        "/StageA/FunctionStack/MyProject/Role/DefaultPolicy/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "MyProjectRoleDefaultPolicyB19B7C29"
-          }
-        ],
-        "/StageA/FunctionStack/MyProject/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "MyProject39F7B0AE"
-          }
-        ],
         "/StageA/FunctionStack/Function/ServiceRole/Resource": [
           {
             "type": "aws:cdk:logicalId",

@@ -15,7 +15,7 @@
         }
       }
     },
-    "531014aa099e9cb12e06249b5e4f64a324c1b4a44f9d1ed6130d215e22eab443": {
+    "9a91118226505d44e6d73e1f9959589e089e71d81cfdc950ff2ebb7cf9ba5c9e": {
       "source": {
         "path": "StageBFunctionStack18098DCD.template.json",
         "packaging": "file"
@@ -23,26 +23,12 @@
       "destinations": {
         "489318732371-eu-west-1": {
           "bucketName": "cdk-hnb659fds-assets-489318732371-eu-west-1",
-          "objectKey": "531014aa099e9cb12e06249b5e4f64a324c1b4a44f9d1ed6130d215e22eab443.json",
+          "objectKey": "9a91118226505d44e6d73e1f9959589e089e71d81cfdc950ff2ebb7cf9ba5c9e.json",
           "region": "eu-west-1",
           "assumeRoleArn": "arn:${AWS::Partition}:iam::489318732371:role/cdk-hnb659fds-file-publishing-role-489318732371-eu-west-1"
         }
       }
     }
   },
-  "dockerImages": {
-    "12222464b0149fe195a45eb456c04170a1ffca49f293002afdcc967cc4e1021c": {
-      "source": {
-        "directory": "../asset.12222464b0149fe195a45eb456c04170a1ffca49f293002afdcc967cc4e1021c"
-      },
-      "destinations": {
-        "489318732371-eu-west-1": {
-          "repositoryName": "cdk-hnb659fds-container-assets-489318732371-eu-west-1",
-          "imageTag": "12222464b0149fe195a45eb456c04170a1ffca49f293002afdcc967cc4e1021c",
-          "region": "eu-west-1",
-          "assumeRoleArn": "arn:${AWS::Partition}:iam::489318732371:role/cdk-hnb659fds-image-publishing-role-489318732371-eu-west-1"
-        }
-      }
-    }
-  }
+  "dockerImages": {}
 }
