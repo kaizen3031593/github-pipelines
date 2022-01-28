@@ -1,0 +1,104 @@
+{
+  "version": "tree-0.1",
+  "tree": {
+    "id": "App",
+    "path": "",
+    "children": {
+      "Tree": {
+        "id": "Tree",
+        "path": "Tree",
+        "constructInfo": {
+          "fqn": "constructs.Construct",
+          "version": "10.0.46"
+        }
+      },
+      "NewcdkStack": {
+        "id": "NewcdkStack",
+        "path": "NewcdkStack",
+        "children": {
+          "github": {
+            "id": "github",
+            "path": "NewcdkStack/github",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.Resource",
+              "version": "2.9.0"
+            }
+          },
+          "oidc-role": {
+            "id": "oidc-role",
+            "path": "NewcdkStack/oidc-role",
+            "children": {
+              "github-role": {
+                "id": "github-role",
+                "path": "NewcdkStack/oidc-role/github-role",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "NewcdkStack/oidc-role/github-role/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                      "aws:cdk:cloudformation:props": {
+                        "assumeRolePolicyDocument": {
+                          "Statement": [
+                            {
+                              "Action": "sts:AssumeRoleWithWebIdentity",
+                              "Condition": {
+                                "StringEquals": {
+                                  "token.actions.githubusercontent.com:sub": "repo:kaizen3031593/github-pipelines:ref:refs/heads/main"
+                                }
+                              },
+                              "Effect": "Allow",
+                              "Principal": {
+                                "Federated": "arn:aws:iam::489318732371:oidc-provider/token.actions.githubusercontent.com"
+                              }
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        },
+                        "managedPolicyArns": [
+                          {
+                            "Fn::Join": [
+                              "",
+                              [
+                                "arn:",
+                                {
+                                  "Ref": "AWS::Partition"
+                                },
+                                ":iam::aws:policy/AdministratorAccess"
+                              ]
+                            ]
+                          }
+                        ],
+                        "roleName": "GithubActionRole"
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                      "version": "2.9.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_iam.Role",
+                  "version": "2.9.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "cdk-pipelines-github.GithubOidc",
+              "version": "0.0.0"
+            }
+          }
+        },
+        "constructInfo": {
+          "fqn": "aws-cdk-lib.Stack",
+          "version": "2.9.0"
+        }
+      }
+    },
+    "constructInfo": {
+      "fqn": "aws-cdk-lib.App",
+      "version": "2.9.0"
+    }
+  }
+}
