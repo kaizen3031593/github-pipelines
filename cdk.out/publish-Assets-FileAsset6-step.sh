@@ -1,2 +1,2 @@
 set -x
-npx cdk-assets --path "cdk.out/assembly-StageB/StageBFunctionStack18098DCD.assets.json" --verbose publish "87cd659830ee7cc5e892d02553e03e0e06a8ec7be61347dae0fbb192d03c7723:489318732371-eu-west-1"
+npx cdk-assets --path "cdk.out/assembly-StageB/StageBFunctionStack18098DCD.assets.json" --verbose publish "04b9387dcbe28c375babca73faaa0e16d795f614bfe3a94677de56e228e1a034:489318732371-eu-west-1"
