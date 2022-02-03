@@ -25,32 +25,21 @@
             "PolicyDocument": {
               "Statement": [
                 {
-                  "Action": "sts:AssumeRole",
+                  "Action": [
+                    "sts:AssumeRole",
+                    "sts:TagSession"
+                  ],
                   "Condition": {
                     "ForAnyValue:StringEquals": {
                       "iam:ResourceTag/aws-cdk:bootstrap-role": [
                         "deploy",
                         "lookup",
                         "file-publishing",
-                        "image-publishing"
+                        "image-publishing",
+                        "cloudformation-execute"
                       ]
                     }
                   },
-                  "Effect": "Allow",
-                  "Resource": "*"
-                },
-                {
-                  "Action": "cloudformation:*",
-                  "Effect": "Allow",
-                  "Resource": "*"
-                },
-                {
-                  "Action": "cloudformation:DeleteStack",
-                  "Effect": "Deny",
-                  "Resource": "*"
-                },
-                {
-                  "Action": "iam:PassRole",
                   "Effect": "Allow",
                   "Resource": "*"
                 }
