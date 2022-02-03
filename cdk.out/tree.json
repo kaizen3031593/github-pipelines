@@ -74,6 +74,21 @@
                                   },
                                   "Effect": "Allow",
                                   "Resource": "*"
+                                },
+                                {
+                                  "Action": "cloudformation:*",
+                                  "Effect": "Allow",
+                                  "Resource": "*"
+                                },
+                                {
+                                  "Action": "cloudformation:DeleteStack",
+                                  "Effect": "Deny",
+                                  "Resource": "*"
+                                },
+                                {
+                                  "Action": "iam:PassRole",
+                                  "Effect": "Allow",
+                                  "Resource": "*"
                                 }
                               ],
                               "Version": "2012-10-17"

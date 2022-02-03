@@ -1,19 +1,70 @@
 {
   "version": "16.0.0",
   "artifacts": {
-    "assembly-StageA": {
-      "type": "cdk:cloud-assembly",
+    "Tree": {
+      "type": "cdk:tree",
       "properties": {
-        "directoryName": "assembly-StageA",
-        "displayName": "StageA"
+        "file": "tree.json"
       }
     },
-    "assembly-StageB": {
-      "type": "cdk:cloud-assembly",
+    "NewcdkStack.assets": {
+      "type": "cdk:asset-manifest",
       "properties": {
-        "directoryName": "assembly-StageB",
-        "displayName": "StageB"
+        "file": "NewcdkStack.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
       }
+    },
+    "NewcdkStack": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "NewcdkStack.template.json",
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/0c174363c2359678dfb653dfc58e19c6601678e8f446e6e3483b66f19d991bf0.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "NewcdkStack.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "NewcdkStack.assets"
+      ],
+      "metadata": {
+        "/NewcdkStack/oidc-role/github-role/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "oidcrolegithubrole78A9B404"
+          }
+        ],
+        "/NewcdkStack/oidc-role/roleArn": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "oidcroleroleArn13030E93"
+          }
+        ],
+        "/NewcdkStack/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/NewcdkStack/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "NewcdkStack"
     }
   }
 }
