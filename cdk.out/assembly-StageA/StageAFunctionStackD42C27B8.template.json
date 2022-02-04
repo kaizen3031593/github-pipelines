@@ -114,7 +114,7 @@
         "Environment": {
           "ComputeType": "BUILD_GENERAL1_SMALL",
           "Image": {
-            "Fn::Sub": "489318732371.dkr.ecr.us-east-1.${AWS::URLSuffix}/cdk-hnb659fds-container-assets-489318732371-us-east-1:0f0a02776c6955ad7d6385234b2afa76c11dd07033b4a30d73d38f99def5d504"
+            "Fn::Sub": "489318732371.dkr.ecr.us-east-1.${AWS::URLSuffix}/cdk-hnb659fds-container-assets-489318732371-us-east-1:37f81d2cf9c8f768d426d20950aa53192cfd6af331dd5d1c68ab51858a84befd"
           },
           "ImagePullCredentialsType": "SERVICE_ROLE",
           "PrivilegedMode": false,
