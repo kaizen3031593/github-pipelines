@@ -9,7 +9,7 @@
               "Action": "sts:AssumeRoleWithWebIdentity",
               "Condition": {
                 "StringLike": {
-                  "token.actions.githubusercontent.com:sub": "repo:kaizen3031593/github-pipelines:ref:refs/heads/*"
+                  "token.actions.githubusercontent.com:sub": "repo:kaizen3031593/github-pipelines:*"
                 }
               },
               "Effect": "Allow",
@@ -25,18 +25,14 @@
             "PolicyDocument": {
               "Statement": [
                 {
-                  "Action": [
-                    "sts:AssumeRole",
-                    "sts:TagSession"
-                  ],
+                  "Action": "sts:AssumeRole",
                   "Condition": {
                     "ForAnyValue:StringEquals": {
                       "iam:ResourceTag/aws-cdk:bootstrap-role": [
                         "deploy",
                         "lookup",
                         "file-publishing",
-                        "image-publishing",
-                        "cloudformation-execute"
+                        "image-publishing"
                       ]
                     }
                   },
