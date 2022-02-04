@@ -15,7 +15,7 @@
         }
       }
     },
-    "2616f16766dabf4f57f76aa263cab30ed3b30c45e8dfc6cc9ae81cdd53080c3d": {
+    "18c2d81b50165779ede58609b7a78bfcfba8f83ce9fe39aeed1e8e5f0a37af0c": {
       "source": {
         "path": "StageAFunctionStackD42C27B8.template.json",
         "packaging": "file"
@@ -23,12 +23,26 @@
       "destinations": {
         "489318732371-us-east-1": {
           "bucketName": "cdk-hnb659fds-assets-489318732371-us-east-1",
-          "objectKey": "2616f16766dabf4f57f76aa263cab30ed3b30c45e8dfc6cc9ae81cdd53080c3d.json",
+          "objectKey": "18c2d81b50165779ede58609b7a78bfcfba8f83ce9fe39aeed1e8e5f0a37af0c.json",
           "region": "us-east-1",
           "assumeRoleArn": "arn:${AWS::Partition}:iam::489318732371:role/cdk-hnb659fds-file-publishing-role-489318732371-us-east-1"
         }
       }
     }
   },
-  "dockerImages": {}
+  "dockerImages": {
+    "0f0a02776c6955ad7d6385234b2afa76c11dd07033b4a30d73d38f99def5d504": {
+      "source": {
+        "directory": "../asset.0f0a02776c6955ad7d6385234b2afa76c11dd07033b4a30d73d38f99def5d504"
+      },
+      "destinations": {
+        "489318732371-us-east-1": {
+          "repositoryName": "cdk-hnb659fds-container-assets-489318732371-us-east-1",
+          "imageTag": "0f0a02776c6955ad7d6385234b2afa76c11dd07033b4a30d73d38f99def5d504",
+          "region": "us-east-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::489318732371:role/cdk-hnb659fds-image-publishing-role-489318732371-us-east-1"
+        }
+      }
+    }
+  }
 }

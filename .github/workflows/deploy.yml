@@ -23,6 +23,31 @@ jobs:
       - name: Build
         run: echo "nothing to do (cdk.out is committed)"
       - run: echo post-build
+  Assets-DockerAsset1:
+    name: Publish Assets Assets-DockerAsset1
+    needs:
+      - Build-Build
+    permissions:
+      contents: read
+      id-token: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install
+        run: npm install --no-save cdk-assets
+      - name: Authenticate Via OIDC Role
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-region: us-west-2
+          role-duration-seconds: 1800
+          role-skip-session-tagging: true
+          role-to-assume: arn:aws:iam::489318732371:role/GithubActionRole
+      - uses: docker/login-action@v1
+        with:
+          registry: 489318732371.dkr.ecr.us-east-1.amazonaws.com
+      - name: Publish Assets-DockerAsset1
+        run: /bin/bash ./cdk.out/publish-Assets-DockerAsset1-step.sh
   Assets-FileAsset1:
     name: Publish Assets Assets-FileAsset1
     needs:
@@ -36,7 +61,8 @@ jobs:
         uses: actions/checkout@v2
       - name: Install
         run: npm install --no-save cdk-assets
-      - uses: aws-actions/configure-aws-credentials@v1
+      - name: Authenticate Via OIDC Role
+        uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-region: us-west-2
           role-duration-seconds: 1800
@@ -57,7 +83,8 @@ jobs:
         uses: actions/checkout@v2
       - name: Install
         run: npm install --no-save cdk-assets
-      - uses: aws-actions/configure-aws-credentials@v1
+      - name: Authenticate Via OIDC Role
+        uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-region: us-west-2
           role-duration-seconds: 1800
@@ -78,7 +105,8 @@ jobs:
         uses: actions/checkout@v2
       - name: Install
         run: npm install --no-save cdk-assets
-      - uses: aws-actions/configure-aws-credentials@v1
+      - name: Authenticate Via OIDC Role
+        uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-region: us-west-2
           role-duration-seconds: 1800
@@ -99,7 +127,8 @@ jobs:
         uses: actions/checkout@v2
       - name: Install
         run: npm install --no-save cdk-assets
-      - uses: aws-actions/configure-aws-credentials@v1
+      - name: Authenticate Via OIDC Role
+        uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-region: us-west-2
           role-duration-seconds: 1800
@@ -120,7 +149,8 @@ jobs:
         uses: actions/checkout@v2
       - name: Install
         run: npm install --no-save cdk-assets
-      - uses: aws-actions/configure-aws-credentials@v1
+      - name: Authenticate Via OIDC Role
+        uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-region: us-west-2
           role-duration-seconds: 1800
@@ -141,7 +171,8 @@ jobs:
         uses: actions/checkout@v2
       - name: Install
         run: npm install --no-save cdk-assets
-      - uses: aws-actions/configure-aws-credentials@v1
+      - name: Authenticate Via OIDC Role
+        uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-region: us-west-2
           role-duration-seconds: 1800
@@ -171,13 +202,15 @@ jobs:
       - StageA-Pre
     runs-on: ubuntu-latest
     steps:
-      - uses: aws-actions/configure-aws-credentials@v1
+      - name: Authenticate Via OIDC Role
+        uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-region: us-east-1
           role-duration-seconds: 1800
           role-skip-session-tagging: true
           role-to-assume: arn:aws:iam::489318732371:role/GithubActionRole
-      - uses: aws-actions/configure-aws-credentials@v1
+      - name: Assume CDK Deploy Role
+        uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-region: us-east-1
           role-duration-seconds: 1800
@@ -203,17 +236,20 @@ jobs:
       - Build-Build
       - Assets-FileAsset3
       - Assets-FileAsset4
+      - Assets-DockerAsset1
       - StageA-BucketStack-Deploy
       - StageA-Pre
     runs-on: ubuntu-latest
     steps:
-      - uses: aws-actions/configure-aws-credentials@v1
+      - name: Authenticate Via OIDC Role
+        uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-region: us-east-1
           role-duration-seconds: 1800
           role-skip-session-tagging: true
           role-to-assume: arn:aws:iam::489318732371:role/GithubActionRole
-      - uses: aws-actions/configure-aws-credentials@v1
+      - name: Assume CDK Deploy Role
+        uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-region: us-east-1
           role-duration-seconds: 1800
@@ -227,7 +263,7 @@ jobs:
         uses: aws-actions/aws-cloudformation-github-deploy@v1
         with:
           name: StageA-FunctionStack
-          template: https://cdk-hnb659fds-assets-489318732371-us-east-1.s3.us-east-1.amazonaws.com/2616f16766dabf4f57f76aa263cab30ed3b30c45e8dfc6cc9ae81cdd53080c3d.json
+          template: https://cdk-hnb659fds-assets-489318732371-us-east-1.s3.us-east-1.amazonaws.com/18c2d81b50165779ede58609b7a78bfcfba8f83ce9fe39aeed1e8e5f0a37af0c.json
           no-fail-on-empty-changeset: "1"
           role-arn: arn:aws:iam::489318732371:role/cdk-hnb659fds-cfn-exec-role-489318732371-us-east-1
     outputs:
@@ -261,13 +297,15 @@ jobs:
       - StageA-Post
     runs-on: ubuntu-latest
     steps:
-      - uses: aws-actions/configure-aws-credentials@v1
+      - name: Authenticate Via OIDC Role
+        uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-region: eu-west-1
           role-duration-seconds: 1800
           role-skip-session-tagging: true
           role-to-assume: arn:aws:iam::489318732371:role/GithubActionRole
-      - uses: aws-actions/configure-aws-credentials@v1
+      - name: Assume CDK Deploy Role
+        uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-region: eu-west-1
           role-duration-seconds: 1800
@@ -293,6 +331,7 @@ jobs:
       - Build-Build
       - Assets-FileAsset6
       - Assets-FileAsset4
+      - Assets-DockerAsset1
       - StageB-BucketStack-Deploy
       - StageA-BucketStack-Deploy
       - StageA-FunctionStack-Deploy
@@ -300,13 +339,15 @@ jobs:
       - StageA-Post
     runs-on: ubuntu-latest
     steps:
-      - uses: aws-actions/configure-aws-credentials@v1
+      - name: Authenticate Via OIDC Role
+        uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-region: eu-west-1
           role-duration-seconds: 1800
           role-skip-session-tagging: true
           role-to-assume: arn:aws:iam::489318732371:role/GithubActionRole
-      - uses: aws-actions/configure-aws-credentials@v1
+      - name: Assume CDK Deploy Role
+        uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-region: eu-west-1
           role-duration-seconds: 1800
@@ -320,6 +361,6 @@ jobs:
         uses: aws-actions/aws-cloudformation-github-deploy@v1
         with:
           name: StageB-FunctionStack
-          template: https://cdk-hnb659fds-assets-489318732371-eu-west-1.s3.eu-west-1.amazonaws.com/9a91118226505d44e6d73e1f9959589e089e71d81cfdc950ff2ebb7cf9ba5c9e.json
+          template: https://cdk-hnb659fds-assets-489318732371-eu-west-1.s3.eu-west-1.amazonaws.com/c7d9c055fc20c1c8b76d5db99d2683ac41db06063f6937f8395192bcf03131c2.json
           no-fail-on-empty-changeset: "1"
           role-arn: arn:aws:iam::489318732371:role/cdk-hnb659fds-cfn-exec-role-489318732371-eu-west-1
