@@ -38,9 +38,10 @@ jobs:
         run: npm install --no-save cdk-assets
       - uses: aws-actions/configure-aws-credentials@v1
         with:
-          role-to-assume: arn:aws:iam::489318732371:role/GithubActionRole
-          role-duration-seconds: 1800
           aws-region: us-west-2
+          role-duration-seconds: 1800
+          role-skip-session-tagging: true
+          role-to-assume: arn:aws:iam::489318732371:role/GithubActionRole
       - name: Publish Assets-FileAsset1
         run: /bin/bash ./cdk.out/publish-Assets-FileAsset1-step.sh
   Assets-FileAsset2:
@@ -58,9 +59,10 @@ jobs:
         run: npm install --no-save cdk-assets
       - uses: aws-actions/configure-aws-credentials@v1
         with:
-          role-to-assume: arn:aws:iam::489318732371:role/GithubActionRole
-          role-duration-seconds: 1800
           aws-region: us-west-2
+          role-duration-seconds: 1800
+          role-skip-session-tagging: true
+          role-to-assume: arn:aws:iam::489318732371:role/GithubActionRole
       - name: Publish Assets-FileAsset2
         run: /bin/bash ./cdk.out/publish-Assets-FileAsset2-step.sh
   Assets-FileAsset3:
@@ -78,9 +80,10 @@ jobs:
         run: npm install --no-save cdk-assets
       - uses: aws-actions/configure-aws-credentials@v1
         with:
-          role-to-assume: arn:aws:iam::489318732371:role/GithubActionRole
-          role-duration-seconds: 1800
           aws-region: us-west-2
+          role-duration-seconds: 1800
+          role-skip-session-tagging: true
+          role-to-assume: arn:aws:iam::489318732371:role/GithubActionRole
       - name: Publish Assets-FileAsset3
         run: /bin/bash ./cdk.out/publish-Assets-FileAsset3-step.sh
   Assets-FileAsset4:
@@ -98,9 +101,10 @@ jobs:
         run: npm install --no-save cdk-assets
       - uses: aws-actions/configure-aws-credentials@v1
         with:
-          role-to-assume: arn:aws:iam::489318732371:role/GithubActionRole
-          role-duration-seconds: 1800
           aws-region: us-west-2
+          role-duration-seconds: 1800
+          role-skip-session-tagging: true
+          role-to-assume: arn:aws:iam::489318732371:role/GithubActionRole
       - name: Publish Assets-FileAsset4
         run: /bin/bash ./cdk.out/publish-Assets-FileAsset4-step.sh
   Assets-FileAsset5:
@@ -118,9 +122,10 @@ jobs:
         run: npm install --no-save cdk-assets
       - uses: aws-actions/configure-aws-credentials@v1
         with:
-          role-to-assume: arn:aws:iam::489318732371:role/GithubActionRole
-          role-duration-seconds: 1800
           aws-region: us-west-2
+          role-duration-seconds: 1800
+          role-skip-session-tagging: true
+          role-to-assume: arn:aws:iam::489318732371:role/GithubActionRole
       - name: Publish Assets-FileAsset5
         run: /bin/bash ./cdk.out/publish-Assets-FileAsset5-step.sh
   Assets-FileAsset6:
@@ -138,9 +143,10 @@ jobs:
         run: npm install --no-save cdk-assets
       - uses: aws-actions/configure-aws-credentials@v1
         with:
-          role-to-assume: arn:aws:iam::489318732371:role/GithubActionRole
-          role-duration-seconds: 1800
           aws-region: us-west-2
+          role-duration-seconds: 1800
+          role-skip-session-tagging: true
+          role-to-assume: arn:aws:iam::489318732371:role/GithubActionRole
       - name: Publish Assets-FileAsset6
         run: /bin/bash ./cdk.out/publish-Assets-FileAsset6-step.sh
   StageA-Pre:
@@ -167,18 +173,20 @@ jobs:
     steps:
       - uses: aws-actions/configure-aws-credentials@v1
         with:
-          role-to-assume: arn:aws:iam::489318732371:role/GithubActionRole
-          role-duration-seconds: 1800
           aws-region: us-east-1
+          role-duration-seconds: 1800
+          role-skip-session-tagging: true
+          role-to-assume: arn:aws:iam::489318732371:role/GithubActionRole
       - uses: aws-actions/configure-aws-credentials@v1
         with:
+          aws-region: us-east-1
+          role-duration-seconds: 1800
+          role-skip-session-tagging: true
           aws-access-key-id: ${{ env.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ env.AWS_SECRET_ACCESS_KEY }}
           aws-session-token: ${{ env.AWS_SESSION_TOKEN }}
           role-to-assume: arn:aws:iam::489318732371:role/cdk-hnb659fds-deploy-role-489318732371-us-east-1
-          role-duration-seconds: 1800
-          role-skip-session-tagging: true
-          aws-region: us-east-1
+          role-external-id: Pipeline
       - id: Deploy
         uses: aws-actions/aws-cloudformation-github-deploy@v1
         with:
@@ -201,9 +209,20 @@ jobs:
     steps:
       - uses: aws-actions/configure-aws-credentials@v1
         with:
-          role-to-assume: arn:aws:iam::489318732371:role/GithubActionRole
-          role-duration-seconds: 1800
           aws-region: us-east-1
+          role-duration-seconds: 1800
+          role-skip-session-tagging: true
+          role-to-assume: arn:aws:iam::489318732371:role/GithubActionRole
+      - uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-region: us-east-1
+          role-duration-seconds: 1800
+          role-skip-session-tagging: true
+          aws-access-key-id: ${{ env.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ env.AWS_SECRET_ACCESS_KEY }}
+          aws-session-token: ${{ env.AWS_SESSION_TOKEN }}
+          role-to-assume: arn:aws:iam::489318732371:role/cdk-hnb659fds-deploy-role-489318732371-us-east-1
+          role-external-id: Pipeline
       - id: Deploy
         uses: aws-actions/aws-cloudformation-github-deploy@v1
         with:
@@ -244,9 +263,20 @@ jobs:
     steps:
       - uses: aws-actions/configure-aws-credentials@v1
         with:
-          role-to-assume: arn:aws:iam::489318732371:role/GithubActionRole
-          role-duration-seconds: 1800
           aws-region: eu-west-1
+          role-duration-seconds: 1800
+          role-skip-session-tagging: true
+          role-to-assume: arn:aws:iam::489318732371:role/GithubActionRole
+      - uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-region: eu-west-1
+          role-duration-seconds: 1800
+          role-skip-session-tagging: true
+          aws-access-key-id: ${{ env.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ env.AWS_SECRET_ACCESS_KEY }}
+          aws-session-token: ${{ env.AWS_SESSION_TOKEN }}
+          role-to-assume: arn:aws:iam::489318732371:role/cdk-hnb659fds-deploy-role-489318732371-eu-west-1
+          role-external-id: Pipeline
       - id: Deploy
         uses: aws-actions/aws-cloudformation-github-deploy@v1
         with:
@@ -272,9 +302,20 @@ jobs:
     steps:
       - uses: aws-actions/configure-aws-credentials@v1
         with:
-          role-to-assume: arn:aws:iam::489318732371:role/GithubActionRole
-          role-duration-seconds: 1800
           aws-region: eu-west-1
+          role-duration-seconds: 1800
+          role-skip-session-tagging: true
+          role-to-assume: arn:aws:iam::489318732371:role/GithubActionRole
+      - uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-region: eu-west-1
+          role-duration-seconds: 1800
+          role-skip-session-tagging: true
+          aws-access-key-id: ${{ env.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ env.AWS_SECRET_ACCESS_KEY }}
+          aws-session-token: ${{ env.AWS_SESSION_TOKEN }}
+          role-to-assume: arn:aws:iam::489318732371:role/cdk-hnb659fds-deploy-role-489318732371-eu-west-1
+          role-external-id: Pipeline
       - id: Deploy
         uses: aws-actions/aws-cloudformation-github-deploy@v1
         with:
