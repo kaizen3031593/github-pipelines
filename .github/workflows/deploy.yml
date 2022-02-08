@@ -30,6 +30,8 @@ jobs:
     permissions:
       contents: read
     runs-on: ubuntu-latest
+    outputs:
+      asset-hash: ${{ steps.Publish.outputs.hash }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -45,7 +47,8 @@ jobs:
       - uses: docker/login-action@v1
         with:
           registry: 489318732371.dkr.ecr.us-east-1.amazonaws.com
-      - name: Publish Assets-DockerAsset1
+      - id: Publish
+        name: Publish Assets-DockerAsset1
         run: /bin/bash ./cdk.out/publish-Assets-DockerAsset1-step.sh
   Assets-FileAsset1:
     name: Publish Assets Assets-FileAsset1
@@ -54,6 +57,8 @@ jobs:
     permissions:
       contents: read
     runs-on: ubuntu-latest
+    outputs:
+      asset-hash: ${{ steps.Publish.outputs.hash }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -66,11 +71,9 @@ jobs:
           aws-region: us-west-2
           role-skip-session-tagging: true
           role-duration-seconds: 1800
-      - id: kaizen
+      - id: Publish
         name: Publish Assets-FileAsset1
         run: /bin/bash ./cdk.out/publish-Assets-FileAsset1-step.sh
-    outputs:
-      output1: ${{ steps.kaizen.outputs.hash }}
   Assets-FileAsset2:
     name: Publish Assets Assets-FileAsset2
     needs:
@@ -78,6 +81,8 @@ jobs:
     permissions:
       contents: read
     runs-on: ubuntu-latest
+    outputs:
+      asset-hash: ${{ steps.Publish.outputs.hash }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -90,7 +95,8 @@ jobs:
           aws-region: us-west-2
           role-skip-session-tagging: true
           role-duration-seconds: 1800
-      - name: Publish Assets-FileAsset2
+      - id: Publish
+        name: Publish Assets-FileAsset2
         run: /bin/bash ./cdk.out/publish-Assets-FileAsset2-step.sh
   Assets-FileAsset3:
     name: Publish Assets Assets-FileAsset3
@@ -99,6 +105,8 @@ jobs:
     permissions:
       contents: read
     runs-on: ubuntu-latest
+    outputs:
+      asset-hash: ${{ steps.Publish.outputs.hash }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -111,7 +119,8 @@ jobs:
           aws-region: us-west-2
           role-skip-session-tagging: true
           role-duration-seconds: 1800
-      - name: Publish Assets-FileAsset3
+      - id: Publish
+        name: Publish Assets-FileAsset3
         run: /bin/bash ./cdk.out/publish-Assets-FileAsset3-step.sh
   Assets-FileAsset4:
     name: Publish Assets Assets-FileAsset4
@@ -120,6 +129,8 @@ jobs:
     permissions:
       contents: read
     runs-on: ubuntu-latest
+    outputs:
+      asset-hash: ${{ steps.Publish.outputs.hash }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -132,7 +143,8 @@ jobs:
           aws-region: us-west-2
           role-skip-session-tagging: true
           role-duration-seconds: 1800
-      - name: Publish Assets-FileAsset4
+      - id: Publish
+        name: Publish Assets-FileAsset4
         run: /bin/bash ./cdk.out/publish-Assets-FileAsset4-step.sh
   Assets-FileAsset5:
     name: Publish Assets Assets-FileAsset5
@@ -141,6 +153,8 @@ jobs:
     permissions:
       contents: read
     runs-on: ubuntu-latest
+    outputs:
+      asset-hash: ${{ steps.Publish.outputs.hash }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -153,7 +167,8 @@ jobs:
           aws-region: us-west-2
           role-skip-session-tagging: true
           role-duration-seconds: 1800
-      - name: Publish Assets-FileAsset5
+      - id: Publish
+        name: Publish Assets-FileAsset5
         run: /bin/bash ./cdk.out/publish-Assets-FileAsset5-step.sh
   Assets-FileAsset6:
     name: Publish Assets Assets-FileAsset6
@@ -162,6 +177,8 @@ jobs:
     permissions:
       contents: read
     runs-on: ubuntu-latest
+    outputs:
+      asset-hash: ${{ steps.Publish.outputs.hash }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -174,7 +191,8 @@ jobs:
           aws-region: us-west-2
           role-skip-session-tagging: true
           role-duration-seconds: 1800
-      - name: Publish Assets-FileAsset6
+      - id: Publish
+        name: Publish Assets-FileAsset6
         run: /bin/bash ./cdk.out/publish-Assets-FileAsset6-step.sh
   StageA-Pre:
     name: Pre
@@ -197,8 +215,6 @@ jobs:
       - StageA-Pre
     runs-on: ubuntu-latest
     steps:
-      - name: test
-        run: echo ${{ needs.Assets-FileAsset1.outputs.output1 }}
       - uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -212,7 +228,8 @@ jobs:
         uses: aws-actions/aws-cloudformation-github-deploy@v1
         with:
           name: StageA-BucketStack
-          template: https://cdk-hnb659fds-assets-489318732371-us-east-1.s3.us-east-1.amazonaws.com/${{ needs.Assets-FileAsset1.outputs.output1 }}.json
+          template: https://cdk-hnb659fds-assets-489318732371-us-east-1.s3.us-east-1.amazonaws.com/${{
+            needs.Assets-FileAsset1.outputs.hash }}.json
           no-fail-on-empty-changeset: "1"
           role-arn: arn:aws:iam::489318732371:role/cdk-hnb659fds-cfn-exec-role-489318732371-us-east-1
   StageA-FunctionStack-Deploy:
@@ -241,7 +258,8 @@ jobs:
         uses: aws-actions/aws-cloudformation-github-deploy@v1
         with:
           name: StageA-FunctionStack
-          template: https://cdk-hnb659fds-assets-489318732371-us-east-1.s3.us-east-1.amazonaws.com/a7397c78f309a690d44fe874d281c0bb1298d378201debad8ba48de0856282ca.json
+          template: https://cdk-hnb659fds-assets-489318732371-us-east-1.s3.us-east-1.amazonaws.com/${{
+            needs.Assets-FileAsset3.outputs.hash }}.json
           no-fail-on-empty-changeset: "1"
           role-arn: arn:aws:iam::489318732371:role/cdk-hnb659fds-cfn-exec-role-489318732371-us-east-1
     outputs:
@@ -287,7 +305,8 @@ jobs:
         uses: aws-actions/aws-cloudformation-github-deploy@v1
         with:
           name: StageB-BucketStack
-          template: https://cdk-hnb659fds-assets-489318732371-eu-west-1.s3.eu-west-1.amazonaws.com/bd666a7ff96df3c3eff5a60fb6785e2194b73cc264efd599ec51fb7625272515.json
+          template: https://cdk-hnb659fds-assets-489318732371-eu-west-1.s3.eu-west-1.amazonaws.com/${{
+            needs.Assets-FileAsset5.outputs.hash }}.json
           no-fail-on-empty-changeset: "1"
           role-arn: arn:aws:iam::489318732371:role/cdk-hnb659fds-cfn-exec-role-489318732371-eu-west-1
   StageB-FunctionStack-Deploy:
@@ -319,6 +338,7 @@ jobs:
         uses: aws-actions/aws-cloudformation-github-deploy@v1
         with:
           name: StageB-FunctionStack
-          template: https://cdk-hnb659fds-assets-489318732371-eu-west-1.s3.eu-west-1.amazonaws.com/4b18f32cf0a236ce8251016a21b1d50bc060e01a48e2e1668a9ed5fcfa6e3a11.json
+          template: https://cdk-hnb659fds-assets-489318732371-eu-west-1.s3.eu-west-1.amazonaws.com/${{
+            needs.Assets-FileAsset6.outputs.hash }}.json
           no-fail-on-empty-changeset: "1"
           role-arn: arn:aws:iam::489318732371:role/cdk-hnb659fds-cfn-exec-role-489318732371-eu-west-1
