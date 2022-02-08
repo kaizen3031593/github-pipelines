@@ -229,7 +229,7 @@ jobs:
         with:
           name: StageA-BucketStack
           template: https://cdk-hnb659fds-assets-489318732371-us-east-1.s3.us-east-1.amazonaws.com/${{
-            needs.Assets-FileAsset1.outputs.hash }}.json
+            needs.Assets-FileAsset1.outputs.asset-hash }}.json
           no-fail-on-empty-changeset: "1"
           role-arn: arn:aws:iam::489318732371:role/cdk-hnb659fds-cfn-exec-role-489318732371-us-east-1
   StageA-FunctionStack-Deploy:
@@ -259,7 +259,7 @@ jobs:
         with:
           name: StageA-FunctionStack
           template: https://cdk-hnb659fds-assets-489318732371-us-east-1.s3.us-east-1.amazonaws.com/${{
-            needs.Assets-FileAsset3.outputs.hash }}.json
+            needs.Assets-FileAsset3.outputs.asset-hash }}.json
           no-fail-on-empty-changeset: "1"
           role-arn: arn:aws:iam::489318732371:role/cdk-hnb659fds-cfn-exec-role-489318732371-us-east-1
     outputs:
@@ -306,7 +306,7 @@ jobs:
         with:
           name: StageB-BucketStack
           template: https://cdk-hnb659fds-assets-489318732371-eu-west-1.s3.eu-west-1.amazonaws.com/${{
-            needs.Assets-FileAsset5.outputs.hash }}.json
+            needs.Assets-FileAsset5.outputs.asset-hash }}.json
           no-fail-on-empty-changeset: "1"
           role-arn: arn:aws:iam::489318732371:role/cdk-hnb659fds-cfn-exec-role-489318732371-eu-west-1
   StageB-FunctionStack-Deploy:
@@ -339,6 +339,6 @@ jobs:
         with:
           name: StageB-FunctionStack
           template: https://cdk-hnb659fds-assets-489318732371-eu-west-1.s3.eu-west-1.amazonaws.com/${{
-            needs.Assets-FileAsset6.outputs.hash }}.json
+            needs.Assets-FileAsset6.outputs.asset-hash }}.json
           no-fail-on-empty-changeset: "1"
           role-arn: arn:aws:iam::489318732371:role/cdk-hnb659fds-cfn-exec-role-489318732371-eu-west-1
