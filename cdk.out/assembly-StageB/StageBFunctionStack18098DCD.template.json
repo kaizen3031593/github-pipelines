@@ -114,7 +114,7 @@
         "Environment": {
           "ComputeType": "BUILD_GENERAL1_SMALL",
           "Image": {
-            "Fn::Sub": "489318732371.dkr.ecr.eu-west-1.${AWS::URLSuffix}/cdk-hnb659fds-container-assets-489318732371-eu-west-1:96dfcf660f6d61404179ee29c36df0b852f8ad9e3f6e579baeba512d29e158e7"
+            "Fn::Sub": "489318732371.dkr.ecr.eu-west-1.${AWS::URLSuffix}/cdk-hnb659fds-container-assets-489318732371-eu-west-1:ddce17e2014f82c113eda5dace24564bea5d971bf6ffab77e2e9f2136fbe23fa"
           },
           "ImagePullCredentialsType": "SERVICE_ROLE",
           "PrivilegedMode": false,
@@ -221,7 +221,7 @@
       "Properties": {
         "Code": {
           "S3Bucket": "cdk-hnb659fds-assets-489318732371-eu-west-1",
-          "S3Key": "923d41051861c9ea2fa3f60c36c4c5a7f10bdf4fa44ed6965ba3a7bfe50f0487.zip"
+          "S3Key": "110e18dfbcf5cf9d2a3778bf70a12ceccf9eb10d7dd493ef917073e32450a46c.zip"
         },
         "Role": {
           "Fn::GetAtt": [
@@ -245,7 +245,7 @@
       ],
       "Metadata": {
         "aws:cdk:path": "StageB/FunctionStack/Function/Resource",
-        "aws:asset:path": "../asset.923d41051861c9ea2fa3f60c36c4c5a7f10bdf4fa44ed6965ba3a7bfe50f0487",
+        "aws:asset:path": "../asset.110e18dfbcf5cf9d2a3778bf70a12ceccf9eb10d7dd493ef917073e32450a46c",
         "aws:asset:is-bundled": false,
         "aws:asset:property": "Code"
       }
