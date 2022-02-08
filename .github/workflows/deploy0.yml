@@ -21,16 +21,8 @@ jobs:
         with:
           node-version: "14"
       - name: Build
-        run: |-
-          yarn install
-          yarn build
-          npx cdk synth
+        run: echo "nothing to do (cdk.out is committed)"
       - run: echo post-build
-      - name: Upload cdk.out
-        uses: actions/upload-artifact@v2.1.1
-        with:
-          name: cdk.out
-          path: cdk.out
   Assets-DockerAsset1:
     name: Publish Assets Assets-DockerAsset1
     needs:
@@ -39,11 +31,8 @@ jobs:
       contents: read
     runs-on: ubuntu-latest
     steps:
-      - name: Download cdk.out
-        uses: actions/download-artifact@v2
-        with:
-          name: cdk.out
-          path: cdk.out
+      - name: Checkout
+        uses: actions/checkout@v2
       - name: Install
         run: npm install --no-save cdk-assets
       - uses: aws-actions/configure-aws-credentials@v1
@@ -66,11 +55,8 @@ jobs:
       contents: read
     runs-on: ubuntu-latest
     steps:
-      - name: Download cdk.out
-        uses: actions/download-artifact@v2
-        with:
-          name: cdk.out
-          path: cdk.out
+      - name: Checkout
+        uses: actions/checkout@v2
       - name: Install
         run: npm install --no-save cdk-assets
       - uses: aws-actions/configure-aws-credentials@v1
@@ -80,11 +66,8 @@ jobs:
           aws-region: us-west-2
           role-skip-session-tagging: true
           role-duration-seconds: 1800
-      - id: kaizen 
-        name: Publish Assets-FileAsset1
+      - name: Publish Assets-FileAsset1
         run: /bin/bash ./cdk.out/publish-Assets-FileAsset1-step.sh
-    outputs:
-      output1: ${{ steps.kaizen.outputs.hash }}
   Assets-FileAsset2:
     name: Publish Assets Assets-FileAsset2
     needs:
@@ -93,11 +76,8 @@ jobs:
       contents: read
     runs-on: ubuntu-latest
     steps:
-      - name: Download cdk.out
-        uses: actions/download-artifact@v2
-        with:
-          name: cdk.out
-          path: cdk.out
+      - name: Checkout
+        uses: actions/checkout@v2
       - name: Install
         run: npm install --no-save cdk-assets
       - uses: aws-actions/configure-aws-credentials@v1
@@ -117,11 +97,8 @@ jobs:
       contents: read
     runs-on: ubuntu-latest
     steps:
-      - name: Download cdk.out
-        uses: actions/download-artifact@v2
-        with:
-          name: cdk.out
-          path: cdk.out
+      - name: Checkout
+        uses: actions/checkout@v2
       - name: Install
         run: npm install --no-save cdk-assets
       - uses: aws-actions/configure-aws-credentials@v1
@@ -141,11 +118,8 @@ jobs:
       contents: read
     runs-on: ubuntu-latest
     steps:
-      - name: Download cdk.out
-        uses: actions/download-artifact@v2
-        with:
-          name: cdk.out
-          path: cdk.out
+      - name: Checkout
+        uses: actions/checkout@v2
       - name: Install
         run: npm install --no-save cdk-assets
       - uses: aws-actions/configure-aws-credentials@v1
@@ -165,11 +139,8 @@ jobs:
       contents: read
     runs-on: ubuntu-latest
     steps:
-      - name: Download cdk.out
-        uses: actions/download-artifact@v2
-        with:
-          name: cdk.out
-          path: cdk.out
+      - name: Checkout
+        uses: actions/checkout@v2
       - name: Install
         run: npm install --no-save cdk-assets
       - uses: aws-actions/configure-aws-credentials@v1
@@ -189,11 +160,8 @@ jobs:
       contents: read
     runs-on: ubuntu-latest
     steps:
-      - name: Download cdk.out
-        uses: actions/download-artifact@v2
-        with:
-          name: cdk.out
-          path: cdk.out
+      - name: Checkout
+        uses: actions/checkout@v2
       - name: Install
         run: npm install --no-save cdk-assets
       - uses: aws-actions/configure-aws-credentials@v1
@@ -239,7 +207,7 @@ jobs:
         uses: aws-actions/aws-cloudformation-github-deploy@v1
         with:
           name: StageA-BucketStack
-          template: https://cdk-hnb659fds-assets-489318732371-us-east-1.s3.us-east-1.amazonaws.com/${{ needs.Assets-FileAsset1.outputs.output1 }}.json
+          template: https://cdk-hnb659fds-assets-489318732371-us-east-1.s3.us-east-1.amazonaws.com/43c50b5121383d1a98a3b94b5ed566638062eaf235db714bd5c65a94419c7fcf.json
           no-fail-on-empty-changeset: "1"
           role-arn: arn:aws:iam::489318732371:role/cdk-hnb659fds-cfn-exec-role-489318732371-us-east-1
   StageA-FunctionStack-Deploy:
@@ -268,7 +236,7 @@ jobs:
         uses: aws-actions/aws-cloudformation-github-deploy@v1
         with:
           name: StageA-FunctionStack
-          template: https://cdk-hnb659fds-assets-489318732371-us-east-1.s3.us-east-1.amazonaws.com/d1d0e422c4bae46ea1ca1bd5ef8009a816e8f1a053ad7bb230a06580fdc910de.json
+          template: https://cdk-hnb659fds-assets-489318732371-us-east-1.s3.us-east-1.amazonaws.com/a7397c78f309a690d44fe874d281c0bb1298d378201debad8ba48de0856282ca.json
           no-fail-on-empty-changeset: "1"
           role-arn: arn:aws:iam::489318732371:role/cdk-hnb659fds-cfn-exec-role-489318732371-us-east-1
     outputs:
@@ -346,6 +314,6 @@ jobs:
         uses: aws-actions/aws-cloudformation-github-deploy@v1
         with:
           name: StageB-FunctionStack
-          template: https://cdk-hnb659fds-assets-489318732371-eu-west-1.s3.eu-west-1.amazonaws.com/6d44303b6efef728bc825e8a7e69953340268b648522d0c3ca0779675b802da9.json
+          template: https://cdk-hnb659fds-assets-489318732371-eu-west-1.s3.eu-west-1.amazonaws.com/4b18f32cf0a236ce8251016a21b1d50bc060e01a48e2e1668a9ed5fcfa6e3a11.json
           no-fail-on-empty-changeset: "1"
           role-arn: arn:aws:iam::489318732371:role/cdk-hnb659fds-cfn-exec-role-489318732371-eu-west-1
