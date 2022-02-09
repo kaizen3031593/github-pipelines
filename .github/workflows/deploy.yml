@@ -20,8 +20,8 @@ jobs:
         run: |-
           yarn install
           yarn build
-          npx cdk@latest --version
-          npx cdk@latest synth
+          npm install -g aws-cdk
+          cdk synth
       - name: Upload cdk.out
         uses: actions/upload-artifact@v2.1.1
         with:

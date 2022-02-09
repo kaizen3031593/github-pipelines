@@ -66,8 +66,8 @@ export class GitHubExampleApp extends App {
         commands: [
           'yarn install',
           'yarn build',
-          'npx cdk@latest --version',
-          'npx cdk@latest synth',
+          'npm install -g aws-cdk',
+          'cdk synth',
         ],
         primaryOutputDirectory: 'cdk.out',
       }),
