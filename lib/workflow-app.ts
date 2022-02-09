@@ -81,6 +81,8 @@ export class GitHubExampleApp extends App {
     pipeline.addStage(myStage, {
       pre: [new ShellStep('Pre', {
         commands: ['echo hello'],
+      }), new ShellStep('MorePre', {
+        commands: ['echo another one'],
       })],
       post: [new ShellStep('Post', {
         envFromCfnOutputs: {
