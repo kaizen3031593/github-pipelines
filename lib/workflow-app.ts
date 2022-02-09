@@ -64,8 +64,8 @@ export class GitHubExampleApp extends App {
     const pipeline = new GitHubWorkflow(this, 'Pipeline', {
       synth: new ShellStep('Build', {
         commands: [
-          'yarn install',
-          'yarn build',
+          'npm ci',
+          'npm run build',
           'npx cdk synth',
         ],
         primaryOutputDirectory: 'cdk.out',
