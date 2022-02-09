@@ -33,7 +33,10 @@ jobs:
       - Build-Build
     permissions:
       contents: read
+      id-token: none
     runs-on: ubuntu-latest
+    outputs:
+      asset-hash: ${{ steps.Publish.outputs.asset-hash }}
     steps:
       - name: Download cdk.out
         uses: actions/download-artifact@v2
@@ -42,17 +45,20 @@ jobs:
           path: cdk.out
       - name: Install
         run: npm install --no-save cdk-assets
-      - uses: aws-actions/configure-aws-credentials@v1
+      - name: Authenticate Via GitHub Secrets
+        uses: aws-actions/configure-aws-credentials@v1
         with:
+          aws-region: us-west-2
+          role-duration-seconds: 1800
+          role-skip-session-tagging: true
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-west-2
-          role-skip-session-tagging: true
-          role-duration-seconds: 1800
+          aws-session-token: ${{ secrets.undefined }}
       - uses: docker/login-action@v1
         with:
           registry: 489318732371.dkr.ecr.us-east-1.amazonaws.com
-      - name: Publish Assets-DockerAsset1
+      - id: Publish
+        name: Publish Assets-DockerAsset1
         run: /bin/bash ./cdk.out/publish-Assets-DockerAsset1-step.sh
   Assets-FileAsset1:
     name: Publish Assets Assets-FileAsset1
@@ -60,7 +66,10 @@ jobs:
       - Build-Build
     permissions:
       contents: read
+      id-token: none
     runs-on: ubuntu-latest
+    outputs:
+      asset-hash: ${{ steps.Publish.outputs.asset-hash }}
     steps:
       - name: Download cdk.out
         uses: actions/download-artifact@v2
@@ -69,14 +78,17 @@ jobs:
           path: cdk.out
       - name: Install
         run: npm install --no-save cdk-assets
-      - uses: aws-actions/configure-aws-credentials@v1
+      - name: Authenticate Via GitHub Secrets
+        uses: aws-actions/configure-aws-credentials@v1
         with:
+          aws-region: us-west-2
+          role-duration-seconds: 1800
+          role-skip-session-tagging: true
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-west-2
-          role-skip-session-tagging: true
-          role-duration-seconds: 1800
-      - name: Publish Assets-FileAsset1
+          aws-session-token: ${{ secrets.undefined }}
+      - id: Publish
+        name: Publish Assets-FileAsset1
         run: /bin/bash ./cdk.out/publish-Assets-FileAsset1-step.sh
   Assets-FileAsset2:
     name: Publish Assets Assets-FileAsset2
@@ -84,7 +96,10 @@ jobs:
       - Build-Build
     permissions:
       contents: read
+      id-token: none
     runs-on: ubuntu-latest
+    outputs:
+      asset-hash: ${{ steps.Publish.outputs.asset-hash }}
     steps:
       - name: Download cdk.out
         uses: actions/download-artifact@v2
@@ -93,14 +108,17 @@ jobs:
           path: cdk.out
       - name: Install
         run: npm install --no-save cdk-assets
-      - uses: aws-actions/configure-aws-credentials@v1
+      - name: Authenticate Via GitHub Secrets
+        uses: aws-actions/configure-aws-credentials@v1
         with:
+          aws-region: us-west-2
+          role-duration-seconds: 1800
+          role-skip-session-tagging: true
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-west-2
-          role-skip-session-tagging: true
-          role-duration-seconds: 1800
-      - name: Publish Assets-FileAsset2
+          aws-session-token: ${{ secrets.undefined }}
+      - id: Publish
+        name: Publish Assets-FileAsset2
         run: /bin/bash ./cdk.out/publish-Assets-FileAsset2-step.sh
   Assets-FileAsset3:
     name: Publish Assets Assets-FileAsset3
@@ -108,7 +126,10 @@ jobs:
       - Build-Build
     permissions:
       contents: read
+      id-token: none
     runs-on: ubuntu-latest
+    outputs:
+      asset-hash: ${{ steps.Publish.outputs.asset-hash }}
     steps:
       - name: Download cdk.out
         uses: actions/download-artifact@v2
@@ -117,14 +138,17 @@ jobs:
           path: cdk.out
       - name: Install
         run: npm install --no-save cdk-assets
-      - uses: aws-actions/configure-aws-credentials@v1
+      - name: Authenticate Via GitHub Secrets
+        uses: aws-actions/configure-aws-credentials@v1
         with:
+          aws-region: us-west-2
+          role-duration-seconds: 1800
+          role-skip-session-tagging: true
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-west-2
-          role-skip-session-tagging: true
-          role-duration-seconds: 1800
-      - name: Publish Assets-FileAsset3
+          aws-session-token: ${{ secrets.undefined }}
+      - id: Publish
+        name: Publish Assets-FileAsset3
         run: /bin/bash ./cdk.out/publish-Assets-FileAsset3-step.sh
   Assets-FileAsset4:
     name: Publish Assets Assets-FileAsset4
@@ -132,7 +156,10 @@ jobs:
       - Build-Build
     permissions:
       contents: read
+      id-token: none
     runs-on: ubuntu-latest
+    outputs:
+      asset-hash: ${{ steps.Publish.outputs.asset-hash }}
     steps:
       - name: Download cdk.out
         uses: actions/download-artifact@v2
@@ -141,14 +168,17 @@ jobs:
           path: cdk.out
       - name: Install
         run: npm install --no-save cdk-assets
-      - uses: aws-actions/configure-aws-credentials@v1
+      - name: Authenticate Via GitHub Secrets
+        uses: aws-actions/configure-aws-credentials@v1
         with:
+          aws-region: us-west-2
+          role-duration-seconds: 1800
+          role-skip-session-tagging: true
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-west-2
-          role-skip-session-tagging: true
-          role-duration-seconds: 1800
-      - name: Publish Assets-FileAsset4
+          aws-session-token: ${{ secrets.undefined }}
+      - id: Publish
+        name: Publish Assets-FileAsset4
         run: /bin/bash ./cdk.out/publish-Assets-FileAsset4-step.sh
   Assets-FileAsset5:
     name: Publish Assets Assets-FileAsset5
@@ -156,7 +186,10 @@ jobs:
       - Build-Build
     permissions:
       contents: read
+      id-token: none
     runs-on: ubuntu-latest
+    outputs:
+      asset-hash: ${{ steps.Publish.outputs.asset-hash }}
     steps:
       - name: Download cdk.out
         uses: actions/download-artifact@v2
@@ -165,14 +198,17 @@ jobs:
           path: cdk.out
       - name: Install
         run: npm install --no-save cdk-assets
-      - uses: aws-actions/configure-aws-credentials@v1
+      - name: Authenticate Via GitHub Secrets
+        uses: aws-actions/configure-aws-credentials@v1
         with:
+          aws-region: us-west-2
+          role-duration-seconds: 1800
+          role-skip-session-tagging: true
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-west-2
-          role-skip-session-tagging: true
-          role-duration-seconds: 1800
-      - name: Publish Assets-FileAsset5
+          aws-session-token: ${{ secrets.undefined }}
+      - id: Publish
+        name: Publish Assets-FileAsset5
         run: /bin/bash ./cdk.out/publish-Assets-FileAsset5-step.sh
   Assets-FileAsset6:
     name: Publish Assets Assets-FileAsset6
@@ -180,7 +216,10 @@ jobs:
       - Build-Build
     permissions:
       contents: read
+      id-token: none
     runs-on: ubuntu-latest
+    outputs:
+      asset-hash: ${{ steps.Publish.outputs.asset-hash }}
     steps:
       - name: Download cdk.out
         uses: actions/download-artifact@v2
@@ -189,14 +228,17 @@ jobs:
           path: cdk.out
       - name: Install
         run: npm install --no-save cdk-assets
-      - uses: aws-actions/configure-aws-credentials@v1
+      - name: Authenticate Via GitHub Secrets
+        uses: aws-actions/configure-aws-credentials@v1
         with:
+          aws-region: us-west-2
+          role-duration-seconds: 1800
+          role-skip-session-tagging: true
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-west-2
-          role-skip-session-tagging: true
-          role-duration-seconds: 1800
-      - name: Publish Assets-FileAsset6
+          aws-session-token: ${{ secrets.undefined }}
+      - id: Publish
+        name: Publish Assets-FileAsset6
         run: /bin/bash ./cdk.out/publish-Assets-FileAsset6-step.sh
   StageA-Pre:
     name: Pre
@@ -211,7 +253,8 @@ jobs:
   StageA-BucketStack-Deploy:
     name: Deploy StageABucketStackEAC67DBE
     permissions:
-      contents: none
+      contents: read
+      id-token: none
     needs:
       - Build-Build
       - Assets-FileAsset1
@@ -219,26 +262,30 @@ jobs:
       - StageA-Pre
     runs-on: ubuntu-latest
     steps:
-      - uses: aws-actions/configure-aws-credentials@v1
+      - name: Authenticate Via GitHub Secrets
+        uses: aws-actions/configure-aws-credentials@v1
         with:
+          aws-region: us-east-1
+          role-duration-seconds: 1800
+          role-skip-session-tagging: true
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-1
-          role-skip-session-tagging: true
-          role-duration-seconds: 1800
+          aws-session-token: ${{ secrets.undefined }}
           role-to-assume: arn:aws:iam::489318732371:role/cdk-hnb659fds-deploy-role-489318732371-us-east-1
           role-external-id: Pipeline
       - id: Deploy
         uses: aws-actions/aws-cloudformation-github-deploy@v1
         with:
           name: StageA-BucketStack
-          template: https://cdk-hnb659fds-assets-489318732371-us-east-1.s3.us-east-1.amazonaws.com/43c50b5121383d1a98a3b94b5ed566638062eaf235db714bd5c65a94419c7fcf.json
+          template: https://cdk-hnb659fds-assets-489318732371-us-east-1.s3.us-east-1.amazonaws.com/${{
+            needs.Assets-FileAsset1.outputs.asset-hash }}.json
           no-fail-on-empty-changeset: "1"
           role-arn: arn:aws:iam::489318732371:role/cdk-hnb659fds-cfn-exec-role-489318732371-us-east-1
   StageA-FunctionStack-Deploy:
     name: Deploy StageAFunctionStackD42C27B8
     permissions:
-      contents: none
+      contents: read
+      id-token: none
     needs:
       - Build-Build
       - Assets-FileAsset3
@@ -248,20 +295,23 @@ jobs:
       - StageA-Pre
     runs-on: ubuntu-latest
     steps:
-      - uses: aws-actions/configure-aws-credentials@v1
+      - name: Authenticate Via GitHub Secrets
+        uses: aws-actions/configure-aws-credentials@v1
         with:
+          aws-region: us-east-1
+          role-duration-seconds: 1800
+          role-skip-session-tagging: true
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-1
-          role-skip-session-tagging: true
-          role-duration-seconds: 1800
+          aws-session-token: ${{ secrets.undefined }}
           role-to-assume: arn:aws:iam::489318732371:role/cdk-hnb659fds-deploy-role-489318732371-us-east-1
           role-external-id: Pipeline
       - id: Deploy
         uses: aws-actions/aws-cloudformation-github-deploy@v1
         with:
           name: StageA-FunctionStack
-          template: https://cdk-hnb659fds-assets-489318732371-us-east-1.s3.us-east-1.amazonaws.com/16d571459b27163590e437ed1d4d2ff54cacf3beb9168007c6632736ab932626.json
+          template: https://cdk-hnb659fds-assets-489318732371-us-east-1.s3.us-east-1.amazonaws.com/${{
+            needs.Assets-FileAsset3.outputs.asset-hash }}.json
           no-fail-on-empty-changeset: "1"
           role-arn: arn:aws:iam::489318732371:role/cdk-hnb659fds-cfn-exec-role-489318732371-us-east-1
     outputs:
@@ -283,7 +333,8 @@ jobs:
   StageB-BucketStack-Deploy:
     name: Deploy StageBBucketStackDF3FFF07
     permissions:
-      contents: none
+      contents: read
+      id-token: none
     needs:
       - Build-Build
       - Assets-FileAsset5
@@ -294,26 +345,30 @@ jobs:
       - StageA-Post
     runs-on: ubuntu-latest
     steps:
-      - uses: aws-actions/configure-aws-credentials@v1
+      - name: Authenticate Via GitHub Secrets
+        uses: aws-actions/configure-aws-credentials@v1
         with:
+          aws-region: eu-west-1
+          role-duration-seconds: 1800
+          role-skip-session-tagging: true
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: eu-west-1
-          role-skip-session-tagging: true
-          role-duration-seconds: 1800
+          aws-session-token: ${{ secrets.undefined }}
           role-to-assume: arn:aws:iam::489318732371:role/cdk-hnb659fds-deploy-role-489318732371-eu-west-1
           role-external-id: Pipeline
       - id: Deploy
         uses: aws-actions/aws-cloudformation-github-deploy@v1
         with:
           name: StageB-BucketStack
-          template: https://cdk-hnb659fds-assets-489318732371-eu-west-1.s3.eu-west-1.amazonaws.com/bd666a7ff96df3c3eff5a60fb6785e2194b73cc264efd599ec51fb7625272515.json
+          template: https://cdk-hnb659fds-assets-489318732371-eu-west-1.s3.eu-west-1.amazonaws.com/${{
+            needs.Assets-FileAsset5.outputs.asset-hash }}.json
           no-fail-on-empty-changeset: "1"
           role-arn: arn:aws:iam::489318732371:role/cdk-hnb659fds-cfn-exec-role-489318732371-eu-west-1
   StageB-FunctionStack-Deploy:
     name: Deploy StageBFunctionStack18098DCD
     permissions:
-      contents: none
+      contents: read
+      id-token: none
     needs:
       - Build-Build
       - Assets-FileAsset6
@@ -326,19 +381,22 @@ jobs:
       - StageA-Post
     runs-on: ubuntu-latest
     steps:
-      - uses: aws-actions/configure-aws-credentials@v1
+      - name: Authenticate Via GitHub Secrets
+        uses: aws-actions/configure-aws-credentials@v1
         with:
+          aws-region: eu-west-1
+          role-duration-seconds: 1800
+          role-skip-session-tagging: true
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: eu-west-1
-          role-skip-session-tagging: true
-          role-duration-seconds: 1800
+          aws-session-token: ${{ secrets.undefined }}
           role-to-assume: arn:aws:iam::489318732371:role/cdk-hnb659fds-deploy-role-489318732371-eu-west-1
           role-external-id: Pipeline
       - id: Deploy
         uses: aws-actions/aws-cloudformation-github-deploy@v1
         with:
           name: StageB-FunctionStack
-          template: https://cdk-hnb659fds-assets-489318732371-eu-west-1.s3.eu-west-1.amazonaws.com/05f2688e56e844fcd0bc41e3651ef3653c871a2a30e56c670cc3f6554f610d6b.json
+          template: https://cdk-hnb659fds-assets-489318732371-eu-west-1.s3.eu-west-1.amazonaws.com/${{
+            needs.Assets-FileAsset6.outputs.asset-hash }}.json
           no-fail-on-empty-changeset: "1"
           role-arn: arn:aws:iam::489318732371:role/cdk-hnb659fds-cfn-exec-role-489318732371-eu-west-1
