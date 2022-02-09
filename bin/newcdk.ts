@@ -10,7 +10,7 @@
 
 import { GitHubExampleApp } from '../lib/workflow-app';
 
-const account = process.env.CDK_DEFAULT_ACCOUNT;
+const account = '489318732371'; //process.env.CDK_DEFAULT_ACCOUNT;
 if (!account) {
   throw new Error('CDK_DEFAULT_ACCOUNT is required');
 }
