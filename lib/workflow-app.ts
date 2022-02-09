@@ -64,23 +64,13 @@ export class GitHubExampleApp extends App {
     const pipeline = new GitHubWorkflow(this, 'Pipeline', {
       synth: new ShellStep('Build', {
         commands: [
-          'npm ci',
-          'npm run build',
+          'yarn install',
+          'yarn build',
           'npx cdk synth',
         ],
         primaryOutputDirectory: 'cdk.out',
       }),
       workflowPath: path.join(workflowsDir, 'deploy.yml'),
-      buildContainer: { image: 'alpine' },
-      preBuildSteps: [
-        {
-          uses: 'actions/setup-node@v2',
-          with: { nodeVersion: '14' },
-        },
-      ],
-      postBuildSteps: [
-        { run: 'echo post-build' },
-      ],
       dockerCredentials: [
         DockerCredential.ecr('489318732371.dkr.ecr.us-east-1.amazonaws.com'),
       ],
