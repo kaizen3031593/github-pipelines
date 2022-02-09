@@ -221,7 +221,7 @@
       "Properties": {
         "Code": {
           "S3Bucket": "cdk-hnb659fds-assets-489318732371-us-east-1",
-          "S3Key": "110e18dfbcf5cf9d2a3778bf70a12ceccf9eb10d7dd493ef917073e32450a46c.zip"
+          "S3Key": "923d41051861c9ea2fa3f60c36c4c5a7f10bdf4fa44ed6965ba3a7bfe50f0487.zip"
         },
         "Role": {
           "Fn::GetAtt": [
@@ -245,7 +245,7 @@
       ],
       "Metadata": {
         "aws:cdk:path": "StageA/FunctionStack/Function/Resource",
-        "aws:asset:path": "../asset.110e18dfbcf5cf9d2a3778bf70a12ceccf9eb10d7dd493ef917073e32450a46c",
+        "aws:asset:path": "../asset.923d41051861c9ea2fa3f60c36c4c5a7f10bdf4fa44ed6965ba3a7bfe50f0487",
         "aws:asset:is-bundled": false,
         "aws:asset:property": "Code"
       }

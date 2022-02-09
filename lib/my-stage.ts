@@ -1,9 +1,11 @@
 import * as lambda from 'aws-cdk-lib/aws-lambda';
 import * as s3 from 'aws-cdk-lib/aws-s3';
-import { RemovalPolicy, Stack, Stage, StageProps } from 'aws-cdk-lib';
+import * as codebuild from 'aws-cdk-lib/aws-codebuild';
+import * as path from 'path';
+import { RemovalPolicy, App, Stack, Stage, StageProps } from 'aws-cdk-lib';
 
 export class MyStage extends Stage {
-  constructor(scope: Stack, id: string, props: StageProps = {}) {
+  constructor(scope: App, id: string, props: StageProps = {}) {
     super(scope, id, props);
 
     const fnStack = new Stack(this, 'FunctionStack');
@@ -14,8 +16,25 @@ export class MyStage extends Stage {
       removalPolicy: RemovalPolicy.DESTROY,
     });
 
+    // new codebuild.Project(fnStack, 'MyProject', {
+    //   buildSpec: codebuild.BuildSpec.fromObject({
+    //     version: '0.2',
+    //     phases: {
+    //       build: {
+    //         commands: ['ls'],
+    //       },
+    //     },
+    //   }),
+    //   grantReportGroupPermissions: false,
+    //   environment: {
+    //     buildImage: codebuild.LinuxBuildImage.fromAsset(fnStack, 'MyImage', {
+    //       directory: path.join(__dirname, '..', 'demo-image'),
+    //     }),
+    //   },
+    // });
+
     const fn = new lambda.Function(fnStack, 'Function', {
-      code: lambda.Code.fromInline('mycode'),
+      code: lambda.Code.fromAsset(path.join(__dirname, '..', 'lambda')),
       handler: 'index.handler',
       runtime: lambda.Runtime.NODEJS_14_X,
       environment: {
