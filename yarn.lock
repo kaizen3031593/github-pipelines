@@ -1154,10 +1154,10 @@ cdk-assets@2.5.0:
     mime "^2.6.0"
     yargs "^16.2.0"
 
-cdk-pipelines-github@^0.0.93:
-  version "0.0.93"
-  resolved "https://registry.npmjs.org/cdk-pipelines-github/-/cdk-pipelines-github-0.0.93.tgz#7ba8d530c8493cddf465d260e054364bbcd81b91"
-  integrity sha512-9USy6WUUFYTTlBZ8QUWSG/LchJ0lDOmgc7zbCOGyyktW+nUCJQ0nP7w+1LMg85EM+DY939AhVZ2x7f8v9YfbPw==
+cdk-pipelines-github@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.npmjs.org/cdk-pipelines-github/-/cdk-pipelines-github-0.1.2.tgz#eba5b9a1fdde58e6f1fafd9e8eadc9111d1f75cd"
+  integrity sha512-po9hct4ac/1FfeAEOcAiapkaBmZIu/CsQSSZ5LCk8lYrh+JOuTNu2z9aKs9lV9jgR3IRvO2Dxk7huaPVIdqhQg==
   dependencies:
     decamelize "^5.0.1"
     yaml "^1.10.2"
