@@ -22,8 +22,8 @@ jobs:
           node-version: "14"
       - name: Build
         run: |-
-          yarn install
-          yarn build
+          npm install
+          npm build
           npx cdk synth
       - run: echo post-build
       - name: Upload cdk.out
