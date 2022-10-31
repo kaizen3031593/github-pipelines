@@ -21,9 +21,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
-          node-version: "14"
+          node-version: "16"
       - name: Build
         run: echo "nothing to do (cdk.out is committed)"
       - run: echo post-build
@@ -43,7 +43,7 @@ jobs:
       - name: Install
         run: npm install --no-save cdk-assets
       - name: Authenticate Via GitHub Secrets
-        uses: aws-actions/configure-aws-credentials@v1
+        uses: aws-actions/configure-aws-credentials@v1-node16
         with:
           aws-region: us-west-2
           role-duration-seconds: 1800
@@ -72,7 +72,7 @@ jobs:
       - name: Install
         run: npm install --no-save cdk-assets
       - name: Authenticate Via GitHub Secrets
-        uses: aws-actions/configure-aws-credentials@v1
+        uses: aws-actions/configure-aws-credentials@v1-node16
         with:
           aws-region: us-west-2
           role-duration-seconds: 1800
@@ -98,7 +98,7 @@ jobs:
       - name: Install
         run: npm install --no-save cdk-assets
       - name: Authenticate Via GitHub Secrets
-        uses: aws-actions/configure-aws-credentials@v1
+        uses: aws-actions/configure-aws-credentials@v1-node16
         with:
           aws-region: us-west-2
           role-duration-seconds: 1800
@@ -124,7 +124,7 @@ jobs:
       - name: Install
         run: npm install --no-save cdk-assets
       - name: Authenticate Via GitHub Secrets
-        uses: aws-actions/configure-aws-credentials@v1
+        uses: aws-actions/configure-aws-credentials@v1-node16
         with:
           aws-region: us-west-2
           role-duration-seconds: 1800
@@ -150,7 +150,7 @@ jobs:
       - name: Install
         run: npm install --no-save cdk-assets
       - name: Authenticate Via GitHub Secrets
-        uses: aws-actions/configure-aws-credentials@v1
+        uses: aws-actions/configure-aws-credentials@v1-node16
         with:
           aws-region: us-west-2
           role-duration-seconds: 1800
@@ -176,7 +176,7 @@ jobs:
       - name: Install
         run: npm install --no-save cdk-assets
       - name: Authenticate Via GitHub Secrets
-        uses: aws-actions/configure-aws-credentials@v1
+        uses: aws-actions/configure-aws-credentials@v1-node16
         with:
           aws-region: us-west-2
           role-duration-seconds: 1800
@@ -202,7 +202,7 @@ jobs:
       - name: Install
         run: npm install --no-save cdk-assets
       - name: Authenticate Via GitHub Secrets
-        uses: aws-actions/configure-aws-credentials@v1
+        uses: aws-actions/configure-aws-credentials@v1-node16
         with:
           aws-region: us-west-2
           role-duration-seconds: 1800
@@ -235,7 +235,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Authenticate Via GitHub Secrets
-        uses: aws-actions/configure-aws-credentials@v1
+        uses: aws-actions/configure-aws-credentials@v1-node16
         with:
           aws-region: us-east-1
           role-duration-seconds: 1800
@@ -267,7 +267,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Authenticate Via GitHub Secrets
-        uses: aws-actions/configure-aws-credentials@v1
+        uses: aws-actions/configure-aws-credentials@v1-node16
         with:
           aws-region: us-east-1
           role-duration-seconds: 1800
@@ -316,7 +316,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Authenticate Via GitHub Secrets
-        uses: aws-actions/configure-aws-credentials@v1
+        uses: aws-actions/configure-aws-credentials@v1-node16
         with:
           aws-region: eu-west-1
           role-duration-seconds: 1800
@@ -351,7 +351,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Authenticate Via GitHub Secrets
-        uses: aws-actions/configure-aws-credentials@v1
+        uses: aws-actions/configure-aws-credentials@v1-node16
         with:
           aws-region: eu-west-1
           role-duration-seconds: 1800
