@@ -1,3 +1,3 @@
-set -x
-npx cdk-assets --path "cdk.out/assembly-StageB/StageBFunctionStack18098DCD.assets.json" --verbose publish "05f2688e56e844fcd0bc41e3651ef3653c871a2a30e56c670cc3f6554f610d6b:489318732371-eu-west-1"
-echo '::set-output name=asset-hash::05f2688e56e844fcd0bc41e3651ef3653c871a2a30e56c670cc3f6554f610d6b'
+set -ex
+npx cdk-assets --path "cdk.out/assembly-StageB/StageBFunctionStack18098DCD.assets.json" --verbose publish "e47137df456c15b84d022a78af099a8b48cbd69412cd7ce86237886752b1655c:489318732371-eu-west-1"
+echo '::set-output name=asset-hash::e47137df456c15b84d022a78af099a8b48cbd69412cd7ce86237886752b1655c'
