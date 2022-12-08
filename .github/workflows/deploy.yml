@@ -245,7 +245,7 @@ jobs:
           role-to-assume: arn:aws:iam::489318732371:role/cdk-hnb659fds-deploy-role-489318732371-us-east-1
           role-external-id: Pipeline
       - id: Deploy
-        uses: aws-actions/aws-cloudformation-github-deploy@v1
+        uses: aws-actions/aws-cloudformation-github-deploy@v1.1.0
         with:
           name: StageA-BucketStack
           template: https://cdk-hnb659fds-assets-489318732371-us-east-1.s3.us-east-1.amazonaws.com/${{
@@ -277,7 +277,7 @@ jobs:
           role-to-assume: arn:aws:iam::489318732371:role/cdk-hnb659fds-deploy-role-489318732371-us-east-1
           role-external-id: Pipeline
       - id: Deploy
-        uses: aws-actions/aws-cloudformation-github-deploy@v1
+        uses: aws-actions/aws-cloudformation-github-deploy@v1.1.0
         with:
           name: StageA-FunctionStack
           template: https://cdk-hnb659fds-assets-489318732371-us-east-1.s3.us-east-1.amazonaws.com/${{
@@ -326,7 +326,7 @@ jobs:
           role-to-assume: arn:aws:iam::489318732371:role/cdk-hnb659fds-deploy-role-489318732371-eu-west-1
           role-external-id: Pipeline
       - id: Deploy
-        uses: aws-actions/aws-cloudformation-github-deploy@v1
+        uses: aws-actions/aws-cloudformation-github-deploy@v1.1.0
         with:
           name: StageB-BucketStack
           template: https://cdk-hnb659fds-assets-489318732371-eu-west-1.s3.eu-west-1.amazonaws.com/${{
@@ -361,7 +361,7 @@ jobs:
           role-to-assume: arn:aws:iam::489318732371:role/cdk-hnb659fds-deploy-role-489318732371-eu-west-1
           role-external-id: Pipeline
       - id: Deploy
-        uses: aws-actions/aws-cloudformation-github-deploy@v1
+        uses: aws-actions/aws-cloudformation-github-deploy@v1.1.0
         with:
           name: StageB-FunctionStack
           template: https://cdk-hnb659fds-assets-489318732371-eu-west-1.s3.eu-west-1.amazonaws.com/${{
