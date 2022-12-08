@@ -122,7 +122,7 @@
    "Properties": {
     "Code": {
      "S3Bucket": "cdk-hnb659fds-assets-489318732371-us-east-1",
-     "S3Key": "6babbac1f25446ab4660ead0ad5972e3a7742f50c6d8326af98a8bcd5d485335.zip"
+     "S3Key": "3f51abb709b8e65167a45aeed02bab11540603d909005d7148230ba5ce6c74d7.zip"
     },
     "Timeout": 900,
     "MemorySize": 128,
@@ -152,7 +152,7 @@
    ],
    "Metadata": {
     "aws:cdk:path": "StageA/BucketStack/Custom::S3AutoDeleteObjectsCustomResourceProvider/Handler",
-    "aws:asset:path": "../asset.6babbac1f25446ab4660ead0ad5972e3a7742f50c6d8326af98a8bcd5d485335",
+    "aws:asset:path": "../asset.3f51abb709b8e65167a45aeed02bab11540603d909005d7148230ba5ce6c74d7",
     "aws:asset:property": "Code"
    }
   }
